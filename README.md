@@ -1,1 +1,3 @@
-# n-predicate-builder-base
+# n-predicate-builder-base  
+
+NPredicate Builder base library.
