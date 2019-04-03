@@ -12,9 +12,6 @@ namespace NPredicateBuilder
         IEnumerable<T> EntitiesEnumerable(BaseQuery<T> query, IMultipleFinalizer<T> multipleFinalizer, BaseOrder<T> order);
         IQueryable<T> EntitiesQueryable(BaseQuery<T> query, IMultipleFinalizer<T> multipleFinalizer, BaseOrder<T> order);
         List<T> EntitiesList(BaseQuery<T> query, IMultipleFinalizer<T> multipleFinalizer, BaseOrder<T> order);
-        Task<List<T>> EntitiesListAsync(BaseQuery<T> query, IAsyncMultipleFinalizer<T> multipleFinalizer, BaseOrder<T> order);
-
-        //decimal EntitiesCalculation(BaseQuery<T> query, ICalculator<T> calculator);
-        //Task<decimal> EntitiesCalculationAsync(BaseQuery<T> query, IAsyncCalculator<T> calculator);
+        Task<List<T>> EntitiesListAsync(BaseQuery<T> query, IMultipleFinalizer<T> multipleFinalizer, BaseOrder<T> order);
     }
 }

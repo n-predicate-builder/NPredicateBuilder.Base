@@ -8,11 +8,6 @@ namespace NPredicateBuilder.Paging
     {
         private readonly Expression<Func<T, bool>> _finalizerExpression;
 
-        public FirstOrDefault()
-        {
-            
-        }
-
         public FirstOrDefault(Expression<Func<T, bool>> finalizerExpression)
         {
             _finalizerExpression = finalizerExpression;
