@@ -1,11 +1,9 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
 
 namespace NPredicateBuilder
 {
-    public interface ICalculation
+    public interface ICalculator<in T>
     {
-        decimal Calculate<T>(IQueryable<T> queryable);
-        Task<decimal> CalculateAsync<T>(IQueryable<T> queryable);
+        decimal Calculate(IQueryable<T> queryable);
     }
 }

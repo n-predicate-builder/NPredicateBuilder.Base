@@ -3,9 +3,8 @@ using System.Threading.Tasks;
 
 namespace NPredicateBuilder
 {
-    public interface IFinalizer<T>
+    public interface IAsyncSingleFinalizer<T>
     {
-        T Finalize(IQueryable<T> queryable);
         Task<T> FinalizeAsync(IQueryable<T> queryable);
     }
 }
