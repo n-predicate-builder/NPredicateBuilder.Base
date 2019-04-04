@@ -1,36 +1,39 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace NPredicateBuilder.Ordering
 {
     public abstract class BaseOrder<T>
     {
-        private IOrder<T> _firstOrder;
-        private readonly List<IOrder<T>> _secondaryOrder;
-        public IEnumerable<IOrder<T>> OrderExpressions => CombineOrder();
+        public IOrder<T> FirstOrder;
+        private readonly List<IThenByOrder<T>> _secondaryOrders;
+        public IEnumerable<IThenByOrder<T>> SecondaryOrders => _secondaryOrders.AsEnumerable();
 
         protected BaseOrder()
         {
-            _secondaryOrder = new List<IOrder<T>>();
+            _secondaryOrders = new List<IThenByOrder<T>>();
         }
 
-        protected void AddOrderer(IOrder<T> order)
+        protected void OrderBy<TKey>(Expression<Func<T, TKey>> orderExpression)
         {
-            if (_firstOrder == null)
-            {
-                _firstOrder = order;
-            }
-            else
-            {
-                _secondaryOrder.Add(order);
-            }
+            FirstOrder = new OrderBy<T,TKey>(orderExpression);
         }
 
-        private IEnumerable<IOrder<T>> CombineOrder()
+        protected void OrderByDescending<TKey>(Expression<Func<T, TKey>> orderExpression)
         {
-            var orders = new List<IOrder<T>> { _firstOrder };
-            orders.AddRange(_secondaryOrder);
+            FirstOrder = new OrderByDescending<T,TKey>(orderExpression);
+        }
 
-            return orders;
+        protected void ThenBy<TKey>(Expression<Func<T, TKey>> orderExpression)
+        {
+            _secondaryOrders.Add(new ThenBy<T, TKey>(orderExpression));
+        }
+
+        protected void ThenByDescending<TKey>(Expression<Func<T, TKey>> orderExpression)
+        {
+            _secondaryOrders.Add(new ThenByDescending<T,TKey>(orderExpression));
         }
     }
 }

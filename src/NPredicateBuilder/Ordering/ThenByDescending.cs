@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace NPredicateBuilder.Ordering
 {
-    public class ThenByDescending<T, TKey> : IOrder<T>
+    internal class ThenByDescending<T, TKey> : IThenByOrder<T>
     {
         private readonly Expression<Func<T, TKey>> _orderExpression;
 
@@ -13,11 +13,9 @@ namespace NPredicateBuilder.Ordering
             _orderExpression = orderExpression;
         }
 
-        public IOrderedQueryable<T> Order(IQueryable<T> queryable)
+        public IOrderedQueryable<T> Order(IOrderedQueryable<T> queryable)
         {
-            var asOrdered = (IOrderedQueryable<T>)queryable;
-
-            return asOrdered.ThenByDescending(_orderExpression);
+            return queryable.ThenByDescending(_orderExpression);
         }
     }
 }
