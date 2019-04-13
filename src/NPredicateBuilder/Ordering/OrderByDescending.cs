@@ -8,14 +8,8 @@ namespace NPredicateBuilder.Ordering
     {
         private readonly Expression<Func<T, TKey>> _orderExpression;
 
-        public OrderByDescending(Expression<Func<T, TKey>> orderExpression)
-        {
-            _orderExpression = orderExpression;
-        }
+        public OrderByDescending(Expression<Func<T, TKey>> orderExpression) => _orderExpression = orderExpression;
 
-        public IOrderedQueryable<T> Order(IQueryable<T> queryable)
-        {
-            return queryable.OrderByDescending(_orderExpression);
-        }
+        public IOrderedQueryable<T> Order(IQueryable<T> queryable) => queryable.OrderByDescending(_orderExpression);
     }
 }

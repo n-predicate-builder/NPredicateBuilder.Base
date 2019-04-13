@@ -6,14 +6,8 @@ namespace NPredicateBuilder.Paging
     {
         private readonly int _count;
 
-        public Skip(int count)
-        {
-            _count = count;
-        }
+        public Skip(int count) => _count = count;
 
-        public IQueryable<T> Finalize(IQueryable<T> queryable)
-        {
-            return queryable.Skip(_count);
-        }
+        public IQueryable<T> Finalize(IQueryable<T> queryable) => queryable.Skip(_count);
     }
 }

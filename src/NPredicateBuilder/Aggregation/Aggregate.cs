@@ -8,14 +8,8 @@ namespace NPredicateBuilder.Aggregation
     {
         private readonly Expression<Func<T, T, T>> _finalizerExpression;
 
-        public Aggregate(Expression<Func<T, T, T>> finalizerExpression)
-        {
-            _finalizerExpression = finalizerExpression;
-        }
+        public Aggregate(Expression<Func<T, T, T>> finalizerExpression) => _finalizerExpression = finalizerExpression;
 
-        public T Finalize(IQueryable<T> queryable)
-        {
-            return queryable.Aggregate(_finalizerExpression);
-        }
+        public T Finalize(IQueryable<T> queryable) => queryable.Aggregate(_finalizerExpression);
     }
 }
