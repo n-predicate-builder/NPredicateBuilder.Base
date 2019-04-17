@@ -7,7 +7,7 @@ namespace NPredicateBuilder
 {
     public interface INPredicateBuilder<T>
     { 
-        T Entity(BaseQuery<T> baseQuery, ISingleFinalizer<T> singleFinalizer);
+        T Entity(BaseQuery<T> baseQuery, ISingleFinalizer<T> singleFinalizer);+
         T Entity(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, ISingleFinalizer<T> singleFinalizer);
         Task<T> EntityAsync(BaseQuery<T> baseQuery, IAsyncSingleFinalizer<T> singleFinalizer);
         Task<T> EntityAsync(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IAsyncSingleFinalizer<T> singleFinalizer);
