@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq.Expressions;
-using NPredicateBuilder.Aggregation;
 using NPredicateBuilder.Paging;
 
 namespace NPredicateBuilder
@@ -25,11 +24,6 @@ namespace NPredicateBuilder
         public static ISingleFinalizer<T> SingleOrDefault<T>(Expression<Func<T, bool>> finalizerExpression = default)
         {
             return new SingleOrDefault<T>(finalizerExpression);
-        }
-
-        public static ISingleFinalizer<T> Aggregate<T>(Expression<Func<T, T, T>> finalizerExpression)
-        {
-            return new Aggregate<T>(finalizerExpression);
         }
     }
 }

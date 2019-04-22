@@ -11,17 +11,13 @@ namespace NPredicateBuilder
         T Entity(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, ISingleFinalizer<T> singleFinalizer);
         Task<T> EntityAsync(BaseQuery<T> baseQuery, IAsyncSingleFinalizer<T> singleFinalizer);
         Task<T> EntityAsync(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IAsyncSingleFinalizer<T> singleFinalizer);
-        IEnumerable<T> EntitiesEnumerable(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder);
-        IEnumerable<T> EntitiesEnumerable(BaseQuery<T> baseQuery, IMultipleFinalizer<T> multipleFinalizer);
-        IEnumerable<T> EntitiesEnumerable(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IMultipleFinalizer<T> multipleFinalizer);
-        IQueryable<T> EntitiesQueryable(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder);
-        IQueryable<T> EntitiesQueryable(BaseQuery<T> baseQuery, IMultipleFinalizer<T> multipleFinalizer);
-        IQueryable<T> EntitiesQueryable(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IMultipleFinalizer<T> multipleFinalizer);
-        List<T> EntitiesList(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder);
-        List<T> EntitiesList(BaseQuery<T> baseQuery, IMultipleFinalizer<T> multipleFinalizer);
-        List<T> EntitiesList(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IMultipleFinalizer<T> multipleFinalizer);
-        Task<List<T>> EntitiesListAsync(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder);
-        Task<List<T>> EntitiesListAsync(BaseQuery<T> baseQuery, IMultipleFinalizer<T> multipleFinalizer);
-        Task<List<T>> EntitiesListAsync(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IMultipleFinalizer<T> multipleFinalizer);
+        IEnumerable<T> EntitiesEnumerable(BaseQuery<T> baseQuery, IMultipleFinalizer<T> multipleFinalizer = default);
+        IEnumerable<T> EntitiesEnumerable(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IMultipleFinalizer<T> multipleFinalizer = default);
+        IQueryable<T> EntitiesQueryable(BaseQuery<T> baseQuery, IMultipleFinalizer<T> multipleFinalizer = default);
+        IQueryable<T> EntitiesQueryable(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IMultipleFinalizer<T> multipleFinalizer = default);
+        List<T> EntitiesList(BaseQuery<T> baseQuery, IMultipleFinalizer<T> multipleFinalizer = default);
+        List<T> EntitiesList(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IMultipleFinalizer<T> multipleFinalizer = default);
+        Task<List<T>> EntitiesListAsync(BaseQuery<T> baseQuery, IMultipleFinalizer<T> multipleFinalizer = default);
+        Task<List<T>> EntitiesListAsync(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IMultipleFinalizer<T> multipleFinalizer = default);
     }
 }
