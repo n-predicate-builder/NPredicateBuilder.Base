@@ -108,5 +108,9 @@ namespace NPredicateBuilder
         /// <param name="multipleFinalizer">A MultipleFinalizer object.</param>
         /// <returns>A Task of List of type T from the result of a query.</returns>
         Task<List<T>> EntitiesListAsync(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IMultipleFinalizer<T> multipleFinalizer = default);
+
+        int Int(BaseQuery<T> baseQuery, IIntFinalizer<T> intFinalizer);
+
+        Task<int> IntAsync(BaseQuery<T> baseQuery, IAsyncIntFinalizer<T> intFinalizer);
     }
 }
