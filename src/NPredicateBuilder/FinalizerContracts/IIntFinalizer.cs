@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace NPredicateBuilder
+namespace NPredicateBuilder.FinalizerContracts
 {
     public interface IIntFinalizer<in T>
     {

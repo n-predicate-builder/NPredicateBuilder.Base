@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 
-namespace NPredicateBuilder
+namespace NPredicateBuilder.FinalizerContracts
 {
-    public interface IAsyncSingleFinalizer<T>
+    public interface ISingleAsyncFinalizer<T>
     {
         Task<T> FinalizeAsync(IQueryable<T> queryable);
     }

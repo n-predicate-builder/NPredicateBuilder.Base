@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using NPredicateBuilder.FinalizerContracts;
 
 namespace NPredicateBuilder.Paging
 {

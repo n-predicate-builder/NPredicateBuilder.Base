@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using NPredicateBuilder.Ordering;
 
-namespace NPredicateBuilder.Ordering
+namespace NPredicateBuilder
 {
     public abstract class BaseOrder<T>
     {

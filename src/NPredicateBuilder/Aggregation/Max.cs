@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using NPredicateBuilder.FinalizerContracts;
 
 namespace NPredicateBuilder.Aggregation
 {

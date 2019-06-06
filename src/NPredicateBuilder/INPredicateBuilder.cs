@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using NPredicateBuilder.Ordering;
+using NPredicateBuilder.FinalizerContracts;
 
 namespace NPredicateBuilder
 {
@@ -28,18 +28,18 @@ namespace NPredicateBuilder
         /// An async single entity query that accepts a BaseQuery and Finalizer.
         /// </summary>
         /// <param name="baseQuery">A BaseQuery object.</param>
-        /// <param name="singleFinalizer">A SingleFinalizer object.</param>
+        /// <param name="finalizer">A SingleFinalizer object.</param>
         /// <returns>A Task of type T from the result of a query.</returns>
-        Task<T> EntityAsync(BaseQuery<T> baseQuery, IAsyncSingleFinalizer<T> singleFinalizer);
+        Task<T> EntityAsync(BaseQuery<T> baseQuery, ISingleAsyncFinalizer<T> finalizer);
 
         /// <summary>
         /// An async single entity query that accepts a BaseQuery, BaseOrder, and Finalizer.
         /// </summary>
         /// <param name="baseQuery">A BaseQuery object.</param>
         /// <param name="baseOrder">A BaseOrder object.</param>
-        /// <param name="singleFinalizer">A SingleFinalizer object.</param>
+        /// <param name="finalizer">A SingleFinalizer object.</param>
         /// <returns>A Task of type T from the result of a query.</returns>
-        Task<T> EntityAsync(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, IAsyncSingleFinalizer<T> singleFinalizer);
+        Task<T> EntityAsync(BaseQuery<T> baseQuery, BaseOrder<T> baseOrder, ISingleAsyncFinalizer<T> finalizer);
 
         /// <summary>
         /// A query that returns an IEnumerable of type T from a BaseQuery and optional Finalizer.
@@ -111,6 +111,6 @@ namespace NPredicateBuilder
 
         int Int(BaseQuery<T> baseQuery, IIntFinalizer<T> intFinalizer);
 
-        Task<int> IntAsync(BaseQuery<T> baseQuery, IAsyncIntFinalizer<T> intFinalizer);
+        Task<int> IntAsync(BaseQuery<T> baseQuery, IIntAsyncFinalizer<T> finalizer);
     }
 }

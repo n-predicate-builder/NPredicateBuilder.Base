@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace NPredicateBuilder
+namespace NPredicateBuilder.FinalizerContracts
 {
     public interface IMultipleFinalizer<T>
     {
