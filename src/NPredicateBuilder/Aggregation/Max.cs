@@ -1,10 +1,9 @@
 ﻿using System.Linq;
-using NPredicateBuilder.FinalizerContracts;
 
 namespace NPredicateBuilder.Aggregation
 {
-    internal class Max<T> : ISingleFinalizer<T>
+    internal class Max<TSource> : ISingleFinalizer<TSource, TSource>
     {
-        public T Finalize(IQueryable<T> queryable) => queryable.Max();
+        public TSource Finalize(IQueryable<TSource> queryable) => queryable.Max();
     }
 }

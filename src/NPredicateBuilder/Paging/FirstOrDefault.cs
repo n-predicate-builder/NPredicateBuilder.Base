@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using NPredicateBuilder.FinalizerContracts;
 
 namespace NPredicateBuilder.Paging
 {
-    internal class FirstOrDefault<T> : ISingleFinalizer<T>
+    internal class FirstOrDefault<TSource> : BaseFinalizer<TSource>, ISingleFinalizer<TSource, TSource>
     {
-        private readonly Expression<Func<T, bool>> _finalizerExpression;
+        public FirstOrDefault(Expression<Func<TSource, bool>> finalizerExpression) : base(finalizerExpression) { }
 
-        public FirstOrDefault(Expression<Func<T, bool>> finalizerExpression) => _finalizerExpression = finalizerExpression;
-
-        public T Finalize(IQueryable<T> queryable)
+        public TSource Finalize(IQueryable<TSource> queryable)
         {
-            return _finalizerExpression == null ? queryable.FirstOrDefault() : queryable.FirstOrDefault(_finalizerExpression);
+            return FinalizerExpression == null ? queryable.FirstOrDefault() : queryable.FirstOrDefault(FinalizerExpression);
         }
     }
 }

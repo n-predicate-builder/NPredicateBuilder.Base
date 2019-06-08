@@ -1,19 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using NPredicateBuilder.FinalizerContracts;
+﻿using System.Linq;
 
 namespace NPredicateBuilder.Aggregation
 {
-    internal class Count<T> : IIntFinalizer<T>
+    internal class Count<TSource> : ISingleFinalizer<TSource, int>
     {
-        private readonly Expression<Func<T, bool>> _finalizerExpression;
-
-        public Count(Expression<Func<T, bool>> finalizerExpression) => _finalizerExpression = finalizerExpression;
-
-        public int Finalize(IQueryable<T> queryable)
-        {
-            return _finalizerExpression == null ? queryable.Count() : queryable.Count(_finalizerExpression);
-        }
+        public int Finalize(IQueryable<TSource> queryable) => queryable.Count();
     }
 }

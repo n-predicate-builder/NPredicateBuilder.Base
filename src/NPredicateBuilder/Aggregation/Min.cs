@@ -1,10 +1,9 @@
 ﻿using System.Linq;
-using NPredicateBuilder.FinalizerContracts;
 
 namespace NPredicateBuilder.Aggregation
 {
-    public class Min<T> : ISingleFinalizer<T>
+    public class Min<TSource> : ISingleFinalizer<TSource, TSource>
     {
-        public T Finalize(IQueryable<T> queryable) => queryable.Min();
+        public TSource Finalize(IQueryable<TSource> queryable) => queryable.Min();
     }
 }
