@@ -11,8 +11,8 @@ namespace NPredicateBuilder
         TResult Entity<TSource, TResult>(BaseQuery<TSource> query, ISingleFinalizer<TSource, TResult> finalizer) where TSource : class;
         TResult Entity<TSource, TResult>(BaseQuery<TSource> query, BaseOrder<TSource> order, ISingleFinalizer<TSource, TResult> finalizer) where TSource : class;
 
-        Task<TResult> EntityAsync<TSource, TResult>(BaseQuery<TSource> query, ISingleFinalizer<TSource, TResult> finalizer) where TSource : class;
-        Task<TResult> EntityAsync<TSource, TResult>(BaseQuery<TSource> query, BaseOrder<TSource> order, ISingleFinalizer<TSource, TResult> finalizer) where TSource : class;
+        Task<TResult> EntityAsync<TSource, TResult>(BaseQuery<TSource> query, ISingleAsyncFinalizer<TSource, TResult> finalizer) where TSource : class;
+        Task<TResult> EntityAsync<TSource, TResult>(BaseQuery<TSource> query, BaseOrder<TSource> order, ISingleAsyncFinalizer<TSource, TResult> finalizer) where TSource : class;
 
         IEnumerable<TSource> EntitiesEnumerable<TSource>(BaseQuery<TSource> query) where TSource : class;
         IEnumerable<TSource> EntitiesEnumerable<TSource>(BaseQuery<TSource> query, BaseOrder<TSource> order) where TSource : class;
