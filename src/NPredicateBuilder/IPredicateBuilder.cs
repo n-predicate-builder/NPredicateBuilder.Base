@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NPredicateBuilder
 {
-    public interface INPredicateBuilder
+    public interface IPredicateBuilder
     {
         TResult Entity<TSource, TResult>(BaseQuery<TSource> query, ISingleFinalizer<TSource, TResult> finalizer) where TSource : class;
         TResult Entity<TSource, TResult>(BaseQuery<TSource> query, BaseOrder<TSource> order, ISingleFinalizer<TSource, TResult> finalizer) where TSource : class;
