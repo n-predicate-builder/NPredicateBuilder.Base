@@ -6,7 +6,7 @@ namespace NPredicateBuilder.Paging
 {
     internal class SingleOrDefault<TSource> : BaseFinalizer<TSource>, ISingleFinalizer<TSource, TSource>
     {
-        public SingleOrDefault(Expression<Func<TSource, bool>> finalizerExpression) : base(finalizerExpression) { }
+        public SingleOrDefault(Expression<Func<TSource, bool>> finalizerExpression = null) : base(finalizerExpression) { }
 
         public TSource Finalize(IQueryable<TSource> queryable)
         {

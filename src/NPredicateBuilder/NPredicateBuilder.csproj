@@ -5,7 +5,7 @@
     <Authors>North American Airways</Authors>
     <Description>NPredicateBuilder core library.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.8</Version>
+    <Version>2.0.9</Version>
   </PropertyGroup>
 
   <ItemGroup>
