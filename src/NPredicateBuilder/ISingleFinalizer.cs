@@ -2,8 +2,8 @@
 
 namespace NPredicateBuilder
 {
-    public interface ISingleFinalizer<in TSource, out TResult>
+    public interface ISingleFinalizer<in TFinalizerIn, out IFinalizerOut>
     {
-        TResult Finalize(IQueryable<TSource> queryable);     
+        IFinalizerOut Finalize(IQueryable<TFinalizerIn> queryable);     
     }
 }

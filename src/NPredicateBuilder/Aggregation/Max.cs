@@ -2,8 +2,8 @@
 
 namespace NPredicateBuilder.Aggregation
 {
-    internal class Max<TSource> : ISingleFinalizer<TSource, TSource>
+    internal class Max<TFinalizerIn> : ISingleFinalizer<TFinalizerIn, TFinalizerIn>
     {
-        public TSource Finalize(IQueryable<TSource> queryable) => queryable.Max();
+        public TFinalizerIn Finalize(IQueryable<TFinalizerIn> queryable) => queryable.Max();
     }
 }

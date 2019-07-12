@@ -2,8 +2,8 @@
 
 namespace NPredicateBuilder.Aggregation
 {
-    internal class LongCount<TSource> : ISingleFinalizer<TSource, long>
+    internal class LongCount<TFinalizerIn> : ISingleFinalizer<TFinalizerIn, long>
     {
-        public long Finalize(IQueryable<TSource> queryable) => queryable.LongCount();
+        public long Finalize(IQueryable<TFinalizerIn> queryable) => queryable.LongCount();
     }
 }

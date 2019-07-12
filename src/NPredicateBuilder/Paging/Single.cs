@@ -4,11 +4,11 @@ using System.Linq.Expressions;
 
 namespace NPredicateBuilder.Paging
 {
-    internal class Single<TSource> : BaseFinalizer<TSource>, ISingleFinalizer<TSource, TSource>
+    internal class Single<TFinalizerIn> : BaseFinalizer<TFinalizerIn>, ISingleFinalizer<TFinalizerIn, TFinalizerIn>
     {
-        public Single(Expression<Func<TSource, bool>> finalizerExpression = null) : base(finalizerExpression) { }
+        public Single(Expression<Func<TFinalizerIn, bool>> finalizerExpression) : base(finalizerExpression) { }
 
-        public TSource Finalize(IQueryable<TSource> queryable)
+        public TFinalizerIn Finalize(IQueryable<TFinalizerIn> queryable)
         {
             return FinalizerExpression == null ? queryable.Single() : queryable.Single(FinalizerExpression);
         }

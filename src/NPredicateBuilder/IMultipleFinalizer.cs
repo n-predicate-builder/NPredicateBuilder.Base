@@ -2,8 +2,8 @@
 
 namespace NPredicateBuilder
 {
-    public interface IMultipleFinalizer<in TSource, out TResult>
+    public interface IMultipleFinalizer<in TFinalizerIn, out TFinalizerOut>
     {
-        IQueryable<TResult> Finalize(IQueryable<TSource> queryable);
+        IQueryable<TFinalizerOut> Finalize(IQueryable<TFinalizerIn> queryable);
     }
 }

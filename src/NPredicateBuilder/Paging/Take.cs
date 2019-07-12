@@ -2,12 +2,12 @@
 
 namespace NPredicateBuilder.Paging
 {
-    internal class Take<TSource> : IMultipleFinalizer<TSource, TSource>
+    internal class Take<TFinalizerIn> : IMultipleFinalizer<TFinalizerIn, TFinalizerIn>
     {
         private readonly int _count;
 
         public Take(int count) => _count = count;
 
-        public IQueryable<TSource> Finalize(IQueryable<TSource> queryable) => queryable.Take(_count);
+        public IQueryable<TFinalizerIn> Finalize(IQueryable<TFinalizerIn> queryable) => queryable.Take(_count);
     }
 }

@@ -2,8 +2,8 @@
 
 namespace NPredicateBuilder.Aggregation
 {
-    public class Min<TSource> : ISingleFinalizer<TSource, TSource>
+    public class Min<TFinalizerIn> : ISingleFinalizer<TFinalizerIn, TFinalizerIn>
     {
-        public TSource Finalize(IQueryable<TSource> queryable) => queryable.Min();
+        public TFinalizerIn Finalize(IQueryable<TFinalizerIn> queryable) => queryable.Min();
     }
 }

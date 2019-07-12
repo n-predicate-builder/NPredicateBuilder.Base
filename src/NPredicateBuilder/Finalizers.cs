@@ -7,16 +7,16 @@ namespace NPredicateBuilder
 {
     public static class Finalizers
     {
-        public static ISingleFinalizer<TSource, int> Count<TSource>() => new Count<TSource>();
-        public static ISingleFinalizer<TSource, long> LongCount<TSource>() => new LongCount<TSource>();
-        public static ISingleFinalizer<TSource, TSource> Min<TSource>() => new Min<TSource>();
-        public static ISingleFinalizer<TSource, TSource> Max<TSource>() => new Max<TSource>();
-        public static ISingleFinalizer<TSource, TSource> First<TSource>(Expression<Func<TSource, bool>> finalizerExpression = default) => new First<TSource>(finalizerExpression);
-        public static ISingleFinalizer<TSource, TSource> FirstOrDefault<TSource>(Expression<Func<TSource, bool>> finalizerExpression = default) => new FirstOrDefault<TSource>(finalizerExpression);
-        public static ISingleFinalizer<TSource, TSource> Single<TSource>(Expression<Func<TSource, bool>> finalizerExpression = default) => new Single<TSource>(finalizerExpression);
-        public static ISingleFinalizer<TSource, TSource> SingleOrDefault<TSource>(Expression<Func<TSource, bool>> finalizerExpression = default) => new SingleOrDefault<TSource>(finalizerExpression);
-        public static IMultipleFinalizer<TSource, TSource> Skip<TSource>(int count) => new Skip<TSource>(count);
-        public static IMultipleFinalizer<TSource, TSource> Take<TSource>(int count) => new Take<TSource>(count);
+        public static ISingleFinalizer<TFinalizerIn, int> Count<TFinalizerIn>() => new Count<TFinalizerIn>();
+        public static ISingleFinalizer<TFinalizerIn, long> LongCount<TFinalizerIn>() => new LongCount<TFinalizerIn>();
+        public static ISingleFinalizer<TFinalizerIn, TFinalizerIn> Min<TFinalizerIn>() => new Min<TFinalizerIn>();
+        public static ISingleFinalizer<TFinalizerIn, TFinalizerIn> Max<TFinalizerIn>() => new Max<TFinalizerIn>();
+        public static ISingleFinalizer<TFinalizerIn, TFinalizerIn> First<TFinalizerIn>(Expression<Func<TFinalizerIn, bool>> finalizerExpression = null) => new First<TFinalizerIn>(finalizerExpression);
+        public static ISingleFinalizer<TFinalizerIn, TFinalizerIn> FirstOrDefault<TFinalizerIn>(Expression<Func<TFinalizerIn, bool>> finalizerExpression = null) => new FirstOrDefault<TFinalizerIn>(finalizerExpression);
+        public static ISingleFinalizer<TFinalizerIn, TFinalizerIn> Single<TFinalizerIn>(Expression<Func<TFinalizerIn, bool>> finalizerExpression = null) => new Single<TFinalizerIn>(finalizerExpression);
+        public static ISingleFinalizer<TFinalizerIn, TFinalizerIn> SingleOrDefault<TFinalizerIn>(Expression<Func<TFinalizerIn, bool>> finalizerExpression = null) => new SingleOrDefault<TFinalizerIn>(finalizerExpression);
+        public static IMultipleFinalizer<TFinalizerIn, TFinalizerIn> Skip<TFinalizerIn>(int count) => new Skip<TFinalizerIn>(count);
+        public static IMultipleFinalizer<TFinalizerIn, TFinalizerIn> Take<TFinalizerIn>(int count) => new Take<TFinalizerIn>(count);
         public static ISingleFinalizer<decimal, decimal> DecimalAverage() => new DecimalAverage();
         public static ISingleFinalizer<double, double> DoubleAverage() => new DoubleAverage();
         public static ISingleFinalizer<int, double> IntAverage() => new IntAverage();

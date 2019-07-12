@@ -2,12 +2,12 @@
 
 namespace NPredicateBuilder.Paging
 {
-    internal class Skip<TSource> : IMultipleFinalizer<TSource, TSource>
+    internal class Skip<TFinalizerIn> : IMultipleFinalizer<TFinalizerIn, TFinalizerIn>
     {
         private readonly int _count;
 
         public Skip(int count) => _count = count;
 
-        public IQueryable<TSource> Finalize(IQueryable<TSource> queryable) => queryable.Skip(_count);
+        public IQueryable<TFinalizerIn> Finalize(IQueryable<TFinalizerIn> queryable) => queryable.Skip(_count);
     }
 }

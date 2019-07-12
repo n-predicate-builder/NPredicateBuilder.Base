@@ -2,8 +2,8 @@
 
 namespace NPredicateBuilder.Aggregation
 {
-    internal class Count<TSource> : ISingleFinalizer<TSource, int>
+    internal class Count<TFinalizerIn> : ISingleFinalizer<TFinalizerIn, int>
     {
-        public int Finalize(IQueryable<TSource> queryable) => queryable.Count();
+        public int Finalize(IQueryable<TFinalizerIn> queryable) => queryable.Count();
     }
 }
