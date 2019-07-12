@@ -6,7 +6,7 @@ namespace NPredicateBuilder.Paging
 {
     internal class First<TFinalizerIn> : BaseFinalizer<TFinalizerIn>, ISingleFinalizer<TFinalizerIn, TFinalizerIn>
     {
-        public First(Expression<Func<TFinalizerIn, bool>> finalizerExpression) : base(finalizerExpression) { }
+        public First(Expression<Func<TFinalizerIn, bool>> finalizerExpression = null) : base(finalizerExpression) { }
 
         public TFinalizerIn Finalize(IQueryable<TFinalizerIn> queryable)
         {
