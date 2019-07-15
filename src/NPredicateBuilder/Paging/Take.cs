@@ -2,7 +2,7 @@
 
 namespace NPredicateBuilder.Paging
 {
-    internal class Take<TFinalizerIn> : IMultipleFinalizer<TFinalizerIn, TFinalizerIn>
+    public class Take<TFinalizerIn> : IMultipleFinalizer<TFinalizerIn, TFinalizerIn>
     {
         private readonly int _count;
 

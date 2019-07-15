@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace NPredicateBuilder.Paging
 {
-    internal class Single<TFinalizerIn> : BaseFinalizer<TFinalizerIn>, ISingleFinalizer<TFinalizerIn, TFinalizerIn>
+    public class Single<TFinalizerIn> : BaseFinalizer<TFinalizerIn>, ISingleFinalizer<TFinalizerIn, TFinalizerIn>
     {
         public Single(Expression<Func<TFinalizerIn, bool>> finalizerExpression = null) : base(finalizerExpression) { }
 

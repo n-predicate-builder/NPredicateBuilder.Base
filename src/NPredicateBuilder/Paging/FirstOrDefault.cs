@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace NPredicateBuilder.Paging
 {
-    internal class FirstOrDefault<TFinalizerIn> : BaseFinalizer<TFinalizerIn>, ISingleFinalizer<TFinalizerIn, TFinalizerIn>
+    public class FirstOrDefault<TFinalizerIn> : BaseFinalizer<TFinalizerIn>, ISingleFinalizer<TFinalizerIn, TFinalizerIn>
     {
         public FirstOrDefault(Expression<Func<TFinalizerIn, bool>> finalizerExpression = null) : base(finalizerExpression) { }
 

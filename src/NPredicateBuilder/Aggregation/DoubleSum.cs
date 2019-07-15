@@ -2,7 +2,7 @@
 
 namespace NPredicateBuilder.Aggregation
 {
-    internal class DoubleSum : ISingleFinalizer<double, double>
+    public class DoubleSum : ISingleFinalizer<double, double>
     {
         public double Finalize(IQueryable<double> queryable) => queryable.Sum();
     }

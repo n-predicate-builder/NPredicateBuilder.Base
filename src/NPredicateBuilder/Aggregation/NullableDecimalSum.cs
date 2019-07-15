@@ -2,7 +2,7 @@
 
 namespace NPredicateBuilder.Aggregation
 {
-    internal class NullableDecimalSum : ISingleFinalizer<decimal?, decimal?>
+    public class NullableDecimalSum : ISingleFinalizer<decimal?, decimal?>
     {
         public decimal? Finalize(IQueryable<decimal?> queryable) => queryable.Sum();
     }

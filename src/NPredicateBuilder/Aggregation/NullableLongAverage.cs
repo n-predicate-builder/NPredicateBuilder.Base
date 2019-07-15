@@ -2,7 +2,7 @@
 
 namespace NPredicateBuilder.Aggregation
 {
-    internal class NullableLongAverage : ISingleFinalizer<long?, double?>
+    public class NullableLongAverage : ISingleFinalizer<long?, double?>
     {
         public double? Finalize(IQueryable<long?> queryable) => queryable.Average();
     }

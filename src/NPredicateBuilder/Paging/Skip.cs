@@ -2,7 +2,7 @@
 
 namespace NPredicateBuilder.Paging
 {
-    internal class Skip<TFinalizerIn> : IMultipleFinalizer<TFinalizerIn, TFinalizerIn>
+    public class Skip<TFinalizerIn> : IMultipleFinalizer<TFinalizerIn, TFinalizerIn>
     {
         private readonly int _count;
 
