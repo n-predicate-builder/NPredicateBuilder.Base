@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace NPredicateBuilder.Ordering
+namespace NPredicateBuilder
 {
     internal class OrderByDescending<T, TKey> : IOrder<T>
     {

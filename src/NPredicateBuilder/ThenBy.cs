@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace NPredicateBuilder.Ordering
+namespace NPredicateBuilder
 {
     internal class ThenBy<T, TKey> : IThenByOrder<T>
     {

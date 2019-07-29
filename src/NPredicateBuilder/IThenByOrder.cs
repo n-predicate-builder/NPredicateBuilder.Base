@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace NPredicateBuilder.Ordering
+namespace NPredicateBuilder
 {
     public interface IThenByOrder<T>
     {

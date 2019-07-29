@@ -9,7 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Sets\" />
+    <Compile Remove="Sets\**" />
+    <EmbeddedResource Remove="Sets\**" />
+    <None Remove="Sets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LinqKit.Core" Version="1.1.16" />
   </ItemGroup>
 
 </Project>

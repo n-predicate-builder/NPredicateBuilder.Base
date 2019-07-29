@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace NPredicateBuilder.Ordering
-{
+namespace NPredicateBuilder
+{ 
     internal class ThenByDescending<T, TKey> : IThenByOrder<T>
     {
         private readonly Expression<Func<T, TKey>> _orderExpression;
