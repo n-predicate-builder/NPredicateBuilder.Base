@@ -1,8 +1,8 @@
-﻿using LinqKit;
-using System;
+﻿using System;
 using System.Linq;
+using LinqKit;
 
-namespace NPredicateBuilder
+namespace NPredicateBuilder.EFCore
 {
     public static class NPredicateBuilderExtensions
     {
@@ -17,7 +17,7 @@ namespace NPredicateBuilder
         }
 
         /// <summary>
-        /// Applies a series of Orderers to an IQueryable interface.
+        /// Applies a series of Orders to an IQueryable interface.
         /// </summary>
         public static IOrderedQueryable<T> NPredicateBuilderOrder<T>(this IQueryable<T> queryable, BaseOrder<T> baseOrder)
         {
