@@ -40,6 +40,9 @@
     <Reference Include="LinqKit.EntityFramework, Version=1.1.16.0, Culture=neutral, PublicKeyToken=b6c8cfc71f7a6a80, processorArchitecture=MSIL">
       <HintPath>..\packages\LinqKit.EntityFramework.1.1.16\lib\net45\LinqKit.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="NPredicateBuilder, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPredicateBuilder.3.0.1\lib\netstandard2.0\NPredicateBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -51,18 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NPredicateBuilderExtensions.cs" />
+    <Compile Include="NPredicateBuilderEFExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NPredicateBuilder\NPredicateBuilder.csproj">
-      <Project>{ED85803E-38A7-4CD5-B759-0CDFAC4D1A79}</Project>
-      <Name>NPredicateBuilder</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
