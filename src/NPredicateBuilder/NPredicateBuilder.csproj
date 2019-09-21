@@ -14,4 +14,11 @@
     <None Remove="Sets\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NuGet.CommandLine" Version="5.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>
