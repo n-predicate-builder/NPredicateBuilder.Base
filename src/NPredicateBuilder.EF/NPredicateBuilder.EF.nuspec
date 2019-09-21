@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NPredicateBuilder.EF</id>
+    <version>3.0.0</version>
+    <title>NPredicateBuilder.EF</title>
+    <authors>North American Airways</authors>
+    <owners>North Amercian Airways</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NPredicateBuilder for EF6</description>
+  </metadata>
+</package>

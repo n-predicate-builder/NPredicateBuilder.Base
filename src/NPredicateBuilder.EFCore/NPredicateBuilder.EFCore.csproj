@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Version>3.0.0</Version>
+    <Company>North American Airways</Company>
+    <Authors>North American Airways</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>NPredicateBuilder for EFCore</Description>
   </PropertyGroup>
 
   <ItemGroup>
