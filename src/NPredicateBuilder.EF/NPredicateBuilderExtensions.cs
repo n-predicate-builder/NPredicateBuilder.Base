@@ -2,14 +2,14 @@
 using System.Linq;
 using LinqKit;
 
-namespace NPredicateBuilder.EFCore
+namespace NPredicateBuilder.EF
 {
-    public static class NPredicateBuilderEFExtensions
+    public static class NPredicateBuilderExtensions
     {
         /// <summary>
         /// Applies a series of Where filters to an IQueryable interface.
         /// </summary>
-        public static IQueryable<T> NPredicateBuilderEFWhere<T>(this IQueryable<T> queryable, BaseQuery<T> baseQuery)
+        public static IQueryable<T> NPredicateBuilderWhere<T>(this IQueryable<T> queryable, BaseQuery<T> baseQuery)
         {
             if (baseQuery.SearchExpression == null) throw new ArgumentNullException("There must be at least one predicate to filter by.");
 
@@ -19,7 +19,7 @@ namespace NPredicateBuilder.EFCore
         /// <summary>
         /// Applies a series of Orders to an IQueryable interface.
         /// </summary>
-        public static IOrderedQueryable<T> NPredicateBuilderEFOrder<T>(this IQueryable<T> queryable, BaseOrder<T> baseOrder)
+        public static IOrderedQueryable<T> NPredicateBuilderOrder<T>(this IQueryable<T> queryable, BaseOrder<T> baseOrder)
         {
             if (baseOrder.FirstOrder == null) throw new ArgumentNullException("There must be an OrderBy or OrderBy Descending to order by.");
 
