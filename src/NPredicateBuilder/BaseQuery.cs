@@ -5,9 +5,6 @@ namespace NPredicateBuilder
 {
     public abstract class BaseQuery<T>
     {
-        /// <summary>
-        /// The final search expression that contains a series of predicates to be queried against.
-        /// </summary>
         public Expression<Func<T, bool>> SearchExpression { get; private set; }
 
         private Expression<Func<T, bool>> Or(Expression<Func<T, bool>> nextExpression)

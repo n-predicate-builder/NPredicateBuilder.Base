@@ -7,16 +7,10 @@ namespace NPredicateBuilder
 {
     public abstract class BaseOrder<T>
     {
-        /// <summary>
-        /// The first OrderBy or OrderByDescending order operation.
-        /// </summary>
         public IOrder<T> FirstOrder { get; private set; }
 
         private readonly List<IThenByOrder<T>> _secondaryOrders;
 
-        /// <summary>
-        /// A List of secondary orders that will apply either ThenBy or ThenByDescending order operations.
-        /// </summary>
         public IEnumerable<IThenByOrder<T>> SecondaryOrders => _secondaryOrders.AsEnumerable();
 
         protected BaseOrder() => _secondaryOrders = new List<IThenByOrder<T>>();
@@ -25,7 +19,7 @@ namespace NPredicateBuilder
         /// States the first order by operation to be executed. If one is already present, this will overwrite the current operation.
         /// </summary>
         /// <typeparam name="TKey">The key that you want to order by.</typeparam>
-        /// <param name="orderExpression">The expression that will be used to order an IQueryable of type T."></list></param>
+        /// <param name="orderExpression">The expression that will be used to order an IQueryable of type T."></param>
         protected void OrderBy<TKey>(Expression<Func<T, TKey>> orderExpression) => FirstOrder = new OrderBy<T, TKey>(orderExpression);
     
         /// <summary>
