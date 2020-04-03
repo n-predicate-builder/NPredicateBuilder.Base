@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>3.0.0</Version>
+    <Version>3.1.0</Version>
     <Company>North American Airways</Company>
     <Authors>North American Airways</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="LinqKit.Microsoft.EntityFrameworkCore" Version="3.0.0" />
-    <PackageReference Include="NPredicateBuilder" Version="3.0.1" />
+    <PackageReference Include="NPredicateBuilder" Version="3.1.0" />
   </ItemGroup>
 
 </Project>
