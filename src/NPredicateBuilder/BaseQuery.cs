@@ -1,23 +1,11 @@
-﻿using System;
-using System.Linq.Expressions;
-
-namespace NPredicateBuilder
+﻿namespace NPredicateBuilder
 {
+    using System;
+    using System.Linq.Expressions;
+
     public abstract class BaseQuery<T>
     {
         public Expression<Func<T, bool>> SearchExpression { get; private set; }
-
-        private Expression<Func<T, bool>> Or(Expression<Func<T, bool>> nextExpression)
-        {
-            var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
-            return Expression.Lambda<Func<T, bool>>(Expression.OrElse(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
-        }
-
-        private Expression<Func<T, bool>> And(Expression<Func<T, bool>> nextExpression)
-        {
-            var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
-            return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
-        }
 
         /// <summary>
         /// Appends an additional search expression on an already existing search expression using the And comparison.
@@ -57,6 +45,18 @@ namespace NPredicateBuilder
         protected void AddOrCriteria(Expression<Func<T, bool>> nextExpression)
         {
             SearchExpression = SearchExpression == null ? nextExpression : Or(nextExpression);
+        }
+
+        private Expression<Func<T, bool>> Or(Expression<Func<T, bool>> nextExpression)
+        {
+            var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
+            return Expression.Lambda<Func<T, bool>>(Expression.OrElse(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
+        }
+
+        private Expression<Func<T, bool>> And(Expression<Func<T, bool>> nextExpression)
+        {
+            var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
+            return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
         }
     }
 }

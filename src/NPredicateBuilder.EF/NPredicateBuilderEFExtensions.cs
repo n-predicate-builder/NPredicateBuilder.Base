@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using LinqKit;
-
-namespace NPredicateBuilder.EF
+﻿namespace NPredicateBuilder.EFCore
 {
-    public static class NPredicateBuilderExtensions
+    using System;
+    using System.Linq;
+    using LinqKit;
+
+    public static class NPredicateBuilderEFExtensions
     {
         /// <summary>
         /// Applies a series of predicates as filters on an IQueryable.
@@ -13,9 +13,12 @@ namespace NPredicateBuilder.EF
         /// <param name="queryable">An IQueryable of type T entity.</param>
         /// <param name="baseQuery">A query object that will apply a series of filters.</param>
         /// <returns>A filtered IQueryable of type T.</returns>
-        public static IQueryable<T> NPredicateBuilderWhere<T>(this IQueryable<T> queryable, BaseQuery<T> baseQuery)
+        public static IQueryable<T> NPredicateBuilderEFWhere<T>(this IQueryable<T> queryable, BaseQuery<T> baseQuery)
         {
-            if (baseQuery.SearchExpression == null) throw new ArgumentNullException(nameof(queryable));
+            if (baseQuery.SearchExpression == null)
+            {
+                throw new ArgumentNullException(nameof(queryable));
+            }
 
             return queryable.AsExpandable().Where(baseQuery.SearchExpression);
         }
@@ -27,9 +30,12 @@ namespace NPredicateBuilder.EF
         /// <param name="queryable">An IQueryable of type T entity.</param>
         /// <param name="baseOrder">An order object that will apply a series of orders.</param>
         /// <returns>An IOrderedQueryable of type T.</returns>
-        public static IOrderedQueryable<T> NPredicateBuilderOrder<T>(this IQueryable<T> queryable, BaseOrder<T> baseOrder)
+        public static IOrderedQueryable<T> NPredicateBuilderEFOrder<T>(this IQueryable<T> queryable, BaseOrder<T> baseOrder)
         {
-            if (baseOrder.FirstOrder == null) throw new ArgumentNullException(nameof(queryable));
+            if (baseOrder.FirstOrder == null)
+            {
+                throw new ArgumentNullException(nameof(queryable));
+            }
 
             var orderedEntities = baseOrder.FirstOrder.Order(queryable);
 
