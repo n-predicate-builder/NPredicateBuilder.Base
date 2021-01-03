@@ -15,7 +15,7 @@
 
         public IOrder<T> FirstOrder { get; private set; }
 
-        public IReadOnlyList<IThenByOrder<T>> SecondaryOrders => _secondaryOrders;
+        public IEnumerable<IThenByOrder<T>> SecondaryOrders => _secondaryOrders;
 
         /// <summary>
         /// States the first order by operation to be executed. If one is already present, this will overwrite the current operation.

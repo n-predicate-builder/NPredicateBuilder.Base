@@ -1,4 +1,4 @@
-﻿namespace NPredicateBuilder.EFCore
+﻿namespace NPredicateBuilder.EF
 {
     using System;
     using System.Linq;
