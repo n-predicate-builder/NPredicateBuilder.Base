@@ -42,7 +42,7 @@
                     .NPredicateBuilderEFWhere(query)
                     .ToList();
 
-                Assert.AreEqual(1, result.Count());
+                Assert.AreEqual(1, result.Count);
                 Assert.AreEqual("Bobby", result.First().Name);
             }
         }

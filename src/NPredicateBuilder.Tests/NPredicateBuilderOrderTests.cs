@@ -103,7 +103,7 @@
         }
 
         [TestMethod]
-        public void OrderByDescending_IQuerayble_OrdersCorrectly()
+        public void OrderByDescending_IQueryable_OrdersCorrectly()
         {
             _customers = new List<Customer>
             {
@@ -117,6 +117,46 @@
             var result = _customers.AsQueryable().NPredicateBuilderEFOrder(order);
 
             Assert.AreEqual("Billy", result.Last().Name);
+        }
+
+        [TestMethod]
+        public void ThenByDescending_IEnumerable_OrdersCorrectly()
+        {
+            _customers = new List<Customer>
+            {
+                new Customer(Guid.NewGuid(), "Bobby", 30),
+                new Customer(Guid.NewGuid(), "Billy", 30),
+                new Customer(Guid.NewGuid(), "Billy", 20),
+            };
+
+            var order = new CustomerTestOrder()
+                .ByName()
+                .ThenByAgeDescending();
+
+            var result = _customers.NPredicateBuilderOrder(order);
+
+            Assert.AreEqual("Billy", result.First().Name);
+            Assert.AreEqual(30, result.First().Age);
+        }
+
+        [TestMethod]
+        public void ThenByDescending_IQueryable_OrdersCorrectly()
+        {
+            _customers = new List<Customer>
+            {
+                new Customer(Guid.NewGuid(), "Bobby", 30),
+                new Customer(Guid.NewGuid(), "Billy", 30),
+                new Customer(Guid.NewGuid(), "Billy", 20),
+            };
+
+            var order = new CustomerTestOrder()
+                .ByName()
+                .ThenByAgeDescending();
+
+            var result = _customers.AsQueryable().NPredicateBuilderEFOrder(order);
+
+            Assert.AreEqual("Billy", result.First().Name);
+            Assert.AreEqual(30, result.First().Age);
         }
     }
 }
