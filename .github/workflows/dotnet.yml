@@ -23,10 +23,10 @@ jobs:
           dotnet-version: ${{ matrix.dotnet }}
           
       - name: Restore
-        run: dotnet restore
+      - run: dotnet restore
       
       - name: Build
       - run: dotnet build --no-restore
       
       - name: Test
-        run: dotnet test --no-build --verbosity normal
+      - run: dotnet test --no-build --verbosity normal
