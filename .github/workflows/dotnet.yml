@@ -10,17 +10,20 @@ jobs:
   build:
 
     runs-on: windows-latest
-    strategy:
-      matrix:
-        dotnet: [ '2.1.x', '3.1.x', '5.0.x' ]
-    name: Dotnet ${{ matrix.dotnet }} sample
-    steps:
+   steps:
       - uses: actions/checkout@v2
-      
-      - name: Setup dotnet
+      - name: Setup dotnet 2.1
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: ${{ matrix.dotnet }}
+          dotnet-version: '2.1.x'
+      - name: Setup dotnet 3.1
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+      - name: Setup dotnet 5.0
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
           
       - name: Restore
         run: dotnet restore
