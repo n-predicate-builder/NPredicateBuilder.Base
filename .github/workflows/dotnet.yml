@@ -6,7 +6,6 @@ on:
 
 env:
     NUGET_AUTH_TOKEN: ${{ secrets.NUGET_KEY }}
-    PACK_SOURCE: ${{ D:/a/n-predicate-builder/n-predicate-builder/source }}
 
 jobs:
   build:
