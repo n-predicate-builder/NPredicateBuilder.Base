@@ -29,15 +29,18 @@ jobs:
       - name: Restore
         run: dotnet restore
       
-      - name: Build & Pack
+      - name: Build
         run: dotnet build --no-restore
+        
+      - name: Pack
+        run: dotnet pack --no-build -o .
       
       - name: Test
         run: dotnet test --no-build --verbosity normal
         
       - name: Publish NPredicateBuilder
-        run: dotnet nuget push */bin/Debug/NPredicateBuilder.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
+        run: dotnet nuget push NPredicateBuilder.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
         
       - name: Publish NPredicateBuilder.EF
-        run: dotnet nuget push */bin/Debug/NPredicateBuilder.EF.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
+        run: dotnet nuget push NPredicateBuilder.EF.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
   
