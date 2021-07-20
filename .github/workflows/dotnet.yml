@@ -4,9 +4,6 @@ on:
   push:
     branches: [ master ]
 
-env:
-    NUGET_AUTH_TOKEN: ${{ secrets.NUGET_KEY }}
-
 jobs:
   build:
     runs-on: windows-latest
@@ -39,8 +36,8 @@ jobs:
         run: dotnet test --no-build --verbosity normal
         
       - name: Publish NPredicateBuilder
-        run: dotnet nuget push D:/a/n-predicate-builder/n-predicate-builder/source/NPredicateBuilder/bin/Debug/NPredicateBuilder.*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_AUTH_TOKEN
+        run: dotnet nuget push D:/a/n-predicate-builder/n-predicate-builder/source/NPredicateBuilder/bin/Debug/NPredicateBuilder.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
         
       - name: Publish NPredicateBuilder.EF
-        run: dotnet nuget push D:/a/n-predicate-builder/n-predicate-builder/source/NPredicateBuilder.EF/bin/Debug/NPredicateBuilder.EF.*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_AUTH_TOKEN
+        run: dotnet nuget push D:/a/n-predicate-builder/n-predicate-builder/source/NPredicateBuilder.EF/bin/Debug/NPredicateBuilder.EF.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
   
