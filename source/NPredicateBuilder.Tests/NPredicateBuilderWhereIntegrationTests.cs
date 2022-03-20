@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using EF;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using NPredicateBuilder.EF;
 
     [TestClass]
     public class NPredicateBuilderWhereIntegrationTests
