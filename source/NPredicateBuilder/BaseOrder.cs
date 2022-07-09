@@ -13,8 +13,14 @@
             _secondaryOrders = new List<IThenByOrder<T>>();
         }
 
+        /// <summary>
+        /// Gets the first order expression. This is used by the OrderBy function.
+        /// </summary>
         public IOrder<T> FirstOrder { get; private set; }
 
+        /// <summary>
+        /// Gets the secondary order expressions. This is used by the ThenBy functions.
+        /// </summary>
         public IEnumerable<IThenByOrder<T>> SecondaryOrders => _secondaryOrders;
 
         /// <summary>

@@ -5,6 +5,9 @@
 
     public abstract class BaseQuery<T>
     {
+        /// <summary>
+        /// Gets the current Expression that will be used to query a collection.
+        /// </summary>
         public Expression<Func<T, bool>> SearchExpression { get; private set; }
 
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿namespace NPredicateBuilder.Tests
 {
-#if NET472
+#if NETFRAMEWORK
     using System.Data.Entity;
 #else
     using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@
 
     public sealed class TestContext : DbContext
     {
-#if NET472
+#if NETFRAMEWORK
         public TestContext()
             : base("TestContext")
         {
@@ -22,7 +22,7 @@
 
         public DbSet<Customer> Customers { get; set; }
 
-#if NET472
+#if NETFRAMEWORK
 #else
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
