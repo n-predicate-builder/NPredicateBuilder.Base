@@ -1,17 +1,17 @@
-﻿namespace NPredicateBuilder.Samples
+﻿namespace NPredicateBuilder.Samples.Airplanes
 {
     public class AirplaneQueries : BaseQuery<Airplane>
     {
         public AirplaneQueries IsBoeing()
         {
-            AddAndCriteria(airplane => airplane.Model == "Boeing");
+            AddAndCriteria(airplane => airplane.Manufacturer == "Boeing");
 
             return this;
         }
 
         public AirplaneQueries IsAirbus()
         {
-            AddAndCriteria(airplane => airplane.Model == "Airbus");
+            AddAndCriteria(airplane => airplane.Manufacturer == "Airbus");
 
             return this;
         }

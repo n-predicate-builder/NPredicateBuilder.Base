@@ -1,5 +1,7 @@
 ﻿namespace NPredicateBuilder.Samples
 {
+    using Airplanes;
+    using Flights;
     using Microsoft.EntityFrameworkCore;
 
     public sealed class SampleContext : DbContext
@@ -10,6 +12,8 @@
         }
 
         public DbSet<Airplane> Airplanes { get; set; }
+
+        public DbSet<Flight> Flights { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

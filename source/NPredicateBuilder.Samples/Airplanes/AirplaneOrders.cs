@@ -1,4 +1,4 @@
-﻿namespace NPredicateBuilder.Samples
+﻿namespace NPredicateBuilder.Samples.Airplanes
 {
     public class AirplaneOrders : BaseOrder<Airplane>
     {
