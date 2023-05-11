@@ -15,5 +15,19 @@
 
             return this;
         }
+
+        public AirplaneQueries AndIsWideBody()
+        {
+            AddAndCriteria(airplane => airplane.Model == "787-9" || airplane.Model == "A330-9");
+
+            return this;
+        }
+
+        public AirplaneQueries AndIsNarrowBody()
+        {
+            AddAndCriteria(airplane => airplane.Model == "737-8" || airplane.Model == "A320");
+
+            return this;
+        }
     }
 }

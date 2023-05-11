@@ -13,7 +13,13 @@
 
             // await SimpleQuery();
 
-            await QueryAndOrder();
+            // await QueryAndOrder();
+
+            // await ChainedQuery();
+
+            // await CompoundQuery();
+
+            await CompoundQueryAndMultipleOrder();
         }
 
         public static async Task SimpleQuery()
@@ -35,6 +41,57 @@
             var query = new AirplaneQueries().IsBoeing();
 
             var order = new AirplaneOrders().OrderByManufacturer().ThenByModel();
+
+            await using (var context = new SampleContext())
+            {
+                var result = await context.Airplanes
+                    .NPredicateBuilderEFWhere(query)
+                    .NPredicateBuilderEFOrder(order)
+                    .ToListAsync();
+
+                result.ForEach(Console.WriteLine);
+            }
+        }
+
+        public static async Task ChainedQuery()
+        {
+            var query = new AirplaneQueries().IsBoeing().AndIsWideBody();
+
+            await using (var context = new SampleContext())
+            {
+                var result = await context.Airplanes
+                    .NPredicateBuilderEFWhere(query)
+                    .ToListAsync();
+
+                result.ForEach(Console.WriteLine);
+            }
+        }
+
+        public static async Task CompoundQuery()
+        {
+            var query = new AirplaneQueries()
+                .IsBoeing().AndIsWideBody()
+                .Or(new AirplaneQueries().IsAirbus().AndIsNarrowBody());
+
+            await using (var context = new SampleContext())
+            {
+                var result = await context.Airplanes
+                    .NPredicateBuilderEFWhere(query)
+                    .ToListAsync();
+
+                result.ForEach(Console.WriteLine);
+            }
+        }
+
+        public static async Task CompoundQueryAndMultipleOrder()
+        {
+            var query = new AirplaneQueries()
+                .IsBoeing().AndIsWideBody()
+                .Or(new AirplaneQueries().AndIsNarrowBody());
+
+            var order = new AirplaneOrders()
+                .ByModelDescending()
+                .ThenByManufacturerDescending();
 
             await using (var context = new SampleContext())
             {
