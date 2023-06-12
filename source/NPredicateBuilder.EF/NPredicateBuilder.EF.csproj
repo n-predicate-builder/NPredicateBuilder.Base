@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net480;netcoreapp2.1;netcoreapp3.1;net5.0;net6.0;net7.0;</TargetFrameworks>
     <Authors>Michael Bradvica</Authors>
-    <Version>5.1.0</Version>
+    <Version>5.1.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company>Michael Bradvica LLC.</Company>
     <Description>Extensions for NPredicateBuilder to allow it to work with Entity Framework.</Description>
@@ -11,11 +11,20 @@
     <RepositoryUrl>https://github.com/mjbradvica/n-predicate-builder</RepositoryUrl>
     <RepositoryType>Library</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Title>NPredicateBuilder.EF</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     
-    <PackageReference Include="NPredicateBuilder" Version="5.1.0" />
+    <PackageReference Include="NPredicateBuilder" Version="5.1.1" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net480'">
