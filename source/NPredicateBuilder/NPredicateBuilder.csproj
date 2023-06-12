@@ -11,12 +11,21 @@
     <RepositoryUrl>https://github.com/mjbradvica/n-predicate-builder</RepositoryUrl>
     <RepositoryType>Library</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Title>NPredicateBuilder</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Sets\**" />
     <EmbeddedResource Remove="Sets\**" />
     <None Remove="Sets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
