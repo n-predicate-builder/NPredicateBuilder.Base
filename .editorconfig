@@ -205,7 +205,6 @@ dotnet_naming_style.begins_with_i.required_suffix =
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
 
-dotnet_diagnostic.SA1633.severity = silent
 dotnet_diagnostic.SA1101.severity = silent
 dotnet_diagnostic.SA1309.severity = silent
 dotnet_diagnostic.IDE0270.severity = silent
