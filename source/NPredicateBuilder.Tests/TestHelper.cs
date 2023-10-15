@@ -1,7 +1,7 @@
-﻿namespace NPredicateBuilder.Tests
-{
-    using System;
+﻿using System;
 
+namespace NPredicateBuilder.Tests
+{
     public static class TestHelper
     {
         public static Customer Billy()

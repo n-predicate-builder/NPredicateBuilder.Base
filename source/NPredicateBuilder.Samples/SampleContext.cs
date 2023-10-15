@@ -1,11 +1,14 @@
-﻿namespace NPredicateBuilder.Samples
-{
-    using Airplanes;
-    using Flights;
-    using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using NPredicateBuilder.Samples.Airplanes;
+using NPredicateBuilder.Samples.Flights;
 
+namespace NPredicateBuilder.Samples
+{
     public sealed class SampleContext : DbContext
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SampleContext"/> class.
+        /// </summary>
         public SampleContext()
         {
             Database.EnsureCreated();

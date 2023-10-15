@@ -1,7 +1,14 @@
 ﻿namespace NPredicateBuilder.Tests
 {
+    /// <summary>
+    /// Query for testing.
+    /// </summary>
     public class CustomerTestQuery : BaseQuery<Customer>
     {
+        /// <summary>
+        /// Query for test.
+        /// </summary>
+        /// <returns></returns>
         public CustomerTestQuery AndNameIsBobby()
         {
             AddAndCriteria(x => x.Name == "Bobby");

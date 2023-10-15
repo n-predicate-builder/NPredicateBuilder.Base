@@ -1,9 +1,12 @@
-﻿namespace NPredicateBuilder.EF
-{
-    using System;
-    using System.Linq;
-    using LinqKit;
+﻿using LinqKit;
+using System;
+using System.Linq;
 
+namespace NPredicateBuilder.EF
+{
+    /// <summary>
+    /// A series of extension methods for applying Queries and Orders against an <see cref="IQueryable"/> interface.
+    /// </summary>
     public static class NPredicateBuilderEFExtensions
     {
         /// <summary>

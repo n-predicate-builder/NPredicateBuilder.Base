@@ -1,19 +1,29 @@
-﻿namespace NPredicateBuilder.Tests
+﻿#if NETFRAMEWORK
+using System.Data.Entity;
+
+namespace NPredicateBuilder.Tests
 {
-#if NETFRAMEWORK
-    using System.Data.Entity;
 #else
-    using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace NPredicateBuilder.Tests
+{
 #endif
 
     public sealed class TestContext : DbContext
     {
 #if NETFRAMEWORK
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TestContext"/> class.
+        /// </summary>
         public TestContext()
             : base("TestContext")
         {
         }
 #else
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TestContext"/> class.
+        /// </summary>
         public TestContext()
         {
             Database.EnsureCreated();

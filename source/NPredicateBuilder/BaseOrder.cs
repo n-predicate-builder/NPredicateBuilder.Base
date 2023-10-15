@@ -1,13 +1,20 @@
-﻿namespace NPredicateBuilder
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq.Expressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
+namespace NPredicateBuilder
+{
+    /// <summary>
+    /// A base class used to build Order clause's against an entity.
+    /// </summary>
+    /// <typeparam name="T">The entity to be ordered against.</typeparam>
     public abstract class BaseOrder<T>
     {
         private readonly List<IThenByOrder<T>> _secondaryOrders;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseOrder{T}"/> class.
+        /// </summary>
         protected BaseOrder()
         {
             _secondaryOrders = new List<IThenByOrder<T>>();

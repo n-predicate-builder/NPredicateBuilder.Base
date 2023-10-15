@@ -1,8 +1,12 @@
-﻿namespace NPredicateBuilder
-{
-    using System;
-    using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 
+namespace NPredicateBuilder
+{
+    /// <summary>
+    /// A base class used to build Where clause queries against an entity.
+    /// </summary>
+    /// <typeparam name="T">The entity to be queried against.</typeparam>
     public abstract class BaseQuery<T>
     {
         /// <summary>
