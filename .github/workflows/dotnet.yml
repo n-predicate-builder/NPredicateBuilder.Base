@@ -48,9 +48,6 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal
         
-      - name: Publish NPredicateBuilder
+      - name: Publish
         run: dotnet nuget push NPredicateBuilder.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }} --skip-duplicate
-        
-      - name: Publish NPredicateBuilder.EF
-        run: dotnet nuget push NPredicateBuilder.EF.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }} --skip-duplicate
   
