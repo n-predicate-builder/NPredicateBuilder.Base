@@ -1,9 +1,16 @@
-﻿namespace NPredicateBuilder
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+﻿// <copyright file="NPredicateBuilderExtensions.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace NPredicateBuilder
+{
+    /// <summary>
+    /// Provides extension methods to query and order against an <see cref="IEnumerable{T}"/> collection.
+    /// </summary>
     public static class NPredicateBuilderExtensions
     {
         /// <summary>

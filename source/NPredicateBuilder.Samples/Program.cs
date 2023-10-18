@@ -1,27 +1,37 @@
-﻿namespace NPredicateBuilder.Samples
-{
-    using Airplanes;
-    using EF;
-    using Flights;
-    using Microsoft.EntityFrameworkCore;
+﻿// <copyright file="Program.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
 
+using Microsoft.EntityFrameworkCore;
+using NPredicateBuilder.EF;
+using NPredicateBuilder.Samples.Airplanes;
+using NPredicateBuilder.Samples.Flights;
+
+namespace NPredicateBuilder.Samples
+{
+    /// <summary>
+    /// Sample console application.
+    /// </summary>
     public class Program
     {
-        public static async Task Main(string[] args)
+        /// <summary>
+        /// Sample main function.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
+        public static async Task Main()
         {
             // await AddData();
-
             // await SimpleQuery();
-
             // await QueryAndOrder();
-
             // await ChainedQuery();
-
             // await CompoundQuery();
-
             await CompoundQueryAndMultipleOrder();
         }
 
+        /// <summary>
+        /// Sample query for a simple where statement.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task SimpleQuery()
         {
             var query = new AirplaneQueries().IsBoeing();
@@ -36,6 +46,10 @@
             }
         }
 
+        /// <summary>
+        /// Sample query and order.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task QueryAndOrder()
         {
             var query = new AirplaneQueries().IsBoeing();
@@ -53,6 +67,10 @@
             }
         }
 
+        /// <summary>
+        /// Sample chained query.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task ChainedQuery()
         {
             var query = new AirplaneQueries().IsBoeing().AndIsWideBody();
@@ -67,6 +85,10 @@
             }
         }
 
+        /// <summary>
+        /// Sample compound query.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task CompoundQuery()
         {
             var query = new AirplaneQueries()
@@ -83,6 +105,10 @@
             }
         }
 
+        /// <summary>
+        /// Sample compound query with ordering.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task CompoundQueryAndMultipleOrder()
         {
             var query = new AirplaneQueries()
@@ -104,6 +130,10 @@
             }
         }
 
+        /// <summary>
+        /// Sample data to query and order against.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task AddData()
         {
             await using (var context = new SampleContext())

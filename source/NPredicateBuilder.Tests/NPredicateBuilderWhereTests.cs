@@ -1,16 +1,26 @@
-﻿namespace NPredicateBuilder.Tests
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using EF;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿// <copyright file="NPredicateBuilderWhereTests.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
 
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NPredicateBuilder.EF;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace NPredicateBuilder.Tests
+{
+    /// <summary>
+    /// Tests where filters.
+    /// </summary>
     [TestClass]
     public class NPredicateBuilderWhereTests
     {
         private IEnumerable<Customer> _customers;
 
+        /// <summary>
+        /// Ensures where filters for IEnumerable are correct.
+        /// </summary>
         [TestMethod]
         public void Where_IEnumerable_FiltersCorrectly()
         {
@@ -27,6 +37,9 @@
             Assert.AreEqual("Bobby", result.Single().Name);
         }
 
+        /// <summary>
+        /// Ensure where filters for IQueryable are correct.
+        /// </summary>
         [TestMethod]
         public void Where_Queryable_FiltersCorrectly()
         {
@@ -43,6 +56,9 @@
             Assert.AreEqual("Bobby", result.Single().Name);
         }
 
+        /// <summary>
+        /// Ensure filters for IEnumerable are correct.
+        /// </summary>
         [TestMethod]
         public void MultipleAndFilters_IEnumerable_FiltersCorrectly()
         {
@@ -64,6 +80,9 @@
             Assert.AreEqual(correctCustomer.Age, result.Single().Age);
         }
 
+        /// <summary>
+        /// Ensures compound filter for IQueryable are correct.
+        /// </summary>
         [TestMethod]
         public void MultipleAndFilters_IQueryable_FiltersCorrectly()
         {
@@ -85,6 +104,9 @@
             Assert.AreEqual(correctCustomer.Age, result.Single().Age);
         }
 
+        /// <summary>
+        /// Ensures compound filters for IEnumerable are correct.
+        /// </summary>
         [TestMethod]
         public void CombinedAndOrFilters_IEnumerable_FiltersCorrectly()
         {
@@ -106,6 +128,9 @@
             Assert.AreEqual(3, result.Count);
         }
 
+        /// <summary>
+        /// Ensure compound filters for IQueryable are correct.
+        /// </summary>
         [TestMethod]
         public void CombinedAndOrFilters_IQueryable_FiltersCorrectly()
         {
@@ -127,6 +152,9 @@
             Assert.AreEqual(3, result.Count);
         }
 
+        /// <summary>
+        /// Ensures filters for IEnumerable are correct.
+        /// </summary>
         [TestMethod]
         public void AppendedFilters_IEnumerable_FiltersCorrectly()
         {
@@ -149,6 +177,9 @@
             Assert.AreEqual(3, result.Count);
         }
 
+        /// <summary>
+        /// Ensures filters for IQueryable are correct.
+        /// </summary>
         [TestMethod]
         public void AppendedFilters_IQueryable_FiltersCorrectly()
         {

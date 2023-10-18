@@ -1,14 +1,24 @@
-﻿namespace NPredicateBuilder.Tests
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using EF;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿// <copyright file="NPredicateBuilderWhereIntegrationTests.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
 
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NPredicateBuilder.EF;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace NPredicateBuilder.Tests
+{
+    /// <summary>
+    /// Tests where filters for EF databases.
+    /// </summary>
     [TestClass]
     public class NPredicateBuilderWhereIntegrationTests
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NPredicateBuilderWhereIntegrationTests"/> class.
+        /// </summary>
         public NPredicateBuilderWhereIntegrationTests()
         {
             using (var context = new TestContext())
@@ -19,6 +29,9 @@
             }
         }
 
+        /// <summary>
+        /// Ensures where filters for databases are correct.
+        /// </summary>
         [TestMethod]
         public void Where_DbSet_FiltersCorrectly()
         {
@@ -47,6 +60,9 @@
             }
         }
 
+        /// <summary>
+        /// Ensures multiple filters for databases are correct.
+        /// </summary>
         [TestMethod]
         public void MultipleAndFilters_FiltersCorrectly()
         {
@@ -77,6 +93,9 @@
             }
         }
 
+        /// <summary>
+        /// Ensures compound filters for databases are correct.
+        /// </summary>
         [TestMethod]
         public void CombinedAndOrFilters_FiltersCorrectly()
         {
@@ -107,6 +126,9 @@
             }
         }
 
+        /// <summary>
+        /// Ensures compound filters for databases are correct.
+        /// </summary>
         [TestMethod]
         public void AppendedFilters_FiltersCorrectly()
         {
