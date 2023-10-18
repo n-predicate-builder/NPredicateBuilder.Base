@@ -1,4 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿// <copyright file="NPredicateBuilderOrderIntegrationTests.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NPredicateBuilder.EF;
 using System;
 using System.Collections.Generic;
@@ -6,6 +10,9 @@ using System.Linq;
 
 namespace NPredicateBuilder.Tests
 {
+    /// <summary>
+    /// Order tests for EF databases.
+    /// </summary>
     [TestClass]
     public class NPredicateBuilderOrderIntegrationTests
     {
@@ -22,6 +29,9 @@ namespace NPredicateBuilder.Tests
             }
         }
 
+        /// <summary>
+        /// Ensure orders for databases are correct.
+        /// </summary>
         [TestMethod]
         public void OrderBy_OrdersCorrectly()
         {
@@ -48,6 +58,9 @@ namespace NPredicateBuilder.Tests
             }
         }
 
+        /// <summary>
+        /// Ensures multiple orders for databases are correct.
+        /// </summary>
         [TestMethod]
         public void ThenBy_OrdersCorrectly()
         {
@@ -77,6 +90,9 @@ namespace NPredicateBuilder.Tests
             }
         }
 
+        /// <summary>
+        /// Ensures multiple orders for databases are correct.
+        /// </summary>
         [TestMethod]
         public void OrderByDescending_OrdersCorrectly()
         {
@@ -103,6 +119,9 @@ namespace NPredicateBuilder.Tests
             }
         }
 
+        /// <summary>
+        /// Ensures multiple orders for databases are correct.
+        /// </summary>
         [TestMethod]
         public void ThenByDescending_OrdersCorrectly()
         {

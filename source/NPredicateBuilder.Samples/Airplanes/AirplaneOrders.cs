@@ -1,4 +1,8 @@
-﻿namespace NPredicateBuilder.Samples.Airplanes
+﻿// <copyright file="AirplaneOrders.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
+
+namespace NPredicateBuilder.Samples.Airplanes
 {
     /// <summary>
     /// Sample order for an <see cref="Airplane"/>.

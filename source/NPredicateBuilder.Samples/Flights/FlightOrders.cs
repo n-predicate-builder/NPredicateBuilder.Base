@@ -1,4 +1,8 @@
-﻿namespace NPredicateBuilder.Samples.Flights
+﻿// <copyright file="FlightOrders.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
+
+namespace NPredicateBuilder.Samples.Flights
 {
     /// <summary>
     /// Sample order.

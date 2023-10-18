@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="ThenByDescending.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
+
+using System;
 using System.Linq;
 using System.Linq.Expressions;
 

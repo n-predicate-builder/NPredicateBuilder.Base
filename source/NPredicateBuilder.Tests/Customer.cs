@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="Customer.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
+
+using System;
 
 namespace NPredicateBuilder.Tests
 {

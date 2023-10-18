@@ -1,4 +1,8 @@
-﻿namespace NPredicateBuilder.Tests
+﻿// <copyright file="CustomerTestOrder.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
+
+namespace NPredicateBuilder.Tests
 {
     /// <summary>
     /// Order class for testing purposes.

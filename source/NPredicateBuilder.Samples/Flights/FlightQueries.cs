@@ -1,4 +1,8 @@
-﻿using NPredicateBuilder.Samples.Airplanes;
+﻿// <copyright file="FlightQueries.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
+
+using NPredicateBuilder.Samples.Airplanes;
 
 namespace NPredicateBuilder.Samples.Flights
 {

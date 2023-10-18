@@ -1,4 +1,8 @@
-﻿namespace NPredicateBuilder.Samples.Airplanes
+﻿// <copyright file="Airplane.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
+
+namespace NPredicateBuilder.Samples.Airplanes
 {
     /// <summary>
     /// Sample entity.

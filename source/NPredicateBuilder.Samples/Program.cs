@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// <copyright file="Program.cs" company="Michael Bradvica LLC">
+// Copyright (c) Michael Bradvica LLC. All rights reserved.
+// </copyright>
+
+using Microsoft.EntityFrameworkCore;
 using NPredicateBuilder.EF;
 using NPredicateBuilder.Samples.Airplanes;
 using NPredicateBuilder.Samples.Flights;
@@ -25,7 +29,7 @@ namespace NPredicateBuilder.Samples
         }
 
         /// <summary>
-        ///
+        /// Sample query for a simple where statement.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task SimpleQuery()
@@ -43,7 +47,7 @@ namespace NPredicateBuilder.Samples
         }
 
         /// <summary>
-        ///
+        /// Sample query and order.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task QueryAndOrder()
@@ -64,7 +68,7 @@ namespace NPredicateBuilder.Samples
         }
 
         /// <summary>
-        ///
+        /// Sample chained query.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task ChainedQuery()
@@ -82,7 +86,7 @@ namespace NPredicateBuilder.Samples
         }
 
         /// <summary>
-        ///
+        /// Sample compound query.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task CompoundQuery()
@@ -102,7 +106,7 @@ namespace NPredicateBuilder.Samples
         }
 
         /// <summary>
-        ///
+        /// Sample compound query with ordering.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task CompoundQueryAndMultipleOrder()
@@ -127,7 +131,7 @@ namespace NPredicateBuilder.Samples
         }
 
         /// <summary>
-        ///
+        /// Sample data to query and order against.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         public static async Task AddData()
