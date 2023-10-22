@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NPredicateBuilder.EF\NPredicateBuilder.EF.csproj" />
+    <ProjectReference Include="..\..\source\NPredicateBuilder.EF\NPredicateBuilder.EF.csproj" />
   </ItemGroup>
 
 </Project>
