@@ -45,10 +45,9 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NPredicateBuilder.EF\NPredicateBuilder.EF.csproj" />
-    <ProjectReference Include="..\NPredicateBuilder\NPredicateBuilder.csproj" />
-  </ItemGroup>
-  
+	<ItemGroup>
+	  <ProjectReference Include="..\..\source\NPredicateBuilder.EF\NPredicateBuilder.EF.csproj" />
+	  <ProjectReference Include="..\..\source\NPredicateBuilder\NPredicateBuilder.csproj" />
+	</ItemGroup>
 
 </Project>
