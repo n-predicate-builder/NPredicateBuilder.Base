@@ -24,12 +24,15 @@ NPredicateBuilder is a way to build LINQ queries and orders with the following:
   - [Dependencies](#dependencies)
   - [Installation](#installation)
   - [Quick Start](#quick-start)
-  - [Testing](#testing)
+    - [Queries](#queries)
+    - [Orders](#orders)
+    - [Compound Boolean Logic](#compound-boolean-logic)
+    - [Testing](#testing)
   - [Documentation](#documentation)
   - [FAQ](#faq)
     - [What is NPredicateBuilder?](#what-is-npredicatebuilder)
     - [Do I need NPredicateBuilder?](#do-i-need-npredicatebuilder)
-    - [Whats the difference between the base library and the EF version?](#whats-the-difference-between-the-base-library-and-the-ef-version)
+    - [What's the difference between the base library and the EF version?](#whats-the-difference-between-the-base-library-and-the-ef-version)
     - [How is performance?](#how-is-performance)
     - [How does NPredicateBuilder work with other LINQ statements?](#how-does-npredicatebuilder-work-with-other-linq-statements)
 
@@ -39,11 +42,11 @@ NPredicateBuilder is a way to build LINQ queries and orders with the following:
 - EF Library - NET480 - [LinqKit.EntityFramework](https://www.nuget.org/packages/LinqKit.EntityFramework)
 - EF Library - NET3.1/5/6/7/8 - [LinqKit.Microsoft.EntityFrameworkCore](https://www.nuget.org/packages/LinqKit.Microsoft.EntityFrameworkCore)
 
-NPredicateBuilder uses LinqKit to expand queries into properly formed IQueryable.
+NPredicateBuilder uses LinqKit to expand queries into a properly formed IQueryable.
 
 ## Installation
 
-The best way is to [install with NuGet](https://www.nuget.org/packages/NPredicateBuilder/).
+The best way is to [install via NuGet](https://www.nuget.org/packages/NPredicateBuilder/).
 
 In your domain layer.
 
@@ -59,8 +62,20 @@ Install-Package NPredicateBuilder.EF
 
 ## Quick Start
 
+### Queries
+
+For any entity you wish to query against, create a query class that derives from the BaseQuery class of T, where T is your entity type.
+
 ```csharp
-class PeopleQuery : BaseQuery<People>
+public class PeopleQuery : BaseQuery<People>
+{
+}
+```
+
+Add single queries with the Add or Or logic by creating methods and returning the query object.
+
+```csharp
+public class PeopleQuery : BaseQuery<People>
 {
     public PeopleQuery AndNameIs(string name)
     {
@@ -78,6 +93,10 @@ class PeopleQuery : BaseQuery<People>
 }
 ```
 
+Start a query by creating a query class and chaining methods to produce the query you desire.
+
+> If using LINQ-to-Entities, your final query must be SQL compatible.
+
 Then create a complex query by chaining them together.
 
 ```csharp
@@ -93,6 +112,12 @@ var result = ApplicationContext.People
             .NPredicateBuilderEFWhere(peopleQuery);
 ```
 
+If using plain LINQ-to-Objects, there is the same extension method for the IEnumerable interface.
+
+```csharp
+var result = people.NPredicateBuilderWhere(peopleQuery);
+```
+
 Because it's just an extension method, it behaves like any other LINQ to Object or LINQ to Entities query.
 
 ```csharp
@@ -106,11 +131,65 @@ var result = ApplicationContext.People
 
 NPredicateBuilder can easily be added to any existing or new codebase, no matter what size!
 
-> NPredicateBuilder can simplify Ordering in the same way it handles Queries.
+### Orders
 
-## Testing
+Orders follow the same pattern as queries. Create an Order class for an entity and start adding methods.
 
-Unit tests are easy to write for queries.
+```csharp
+public class PeopleOrders : BaseOrder<People>
+{
+    public PeopleOrders ByAge()
+    {
+        OrderBy(x => x.Age);
+
+        return this;
+    }
+
+    public PeopleOrders ThenByNameDescending()
+    {
+        ThenByDescending(x => x.Name);
+
+        return this;
+    }
+}
+```
+
+Plug your orders into any query you want the same way by utilizing either extension method.
+
+```csharp
+var myOrder = new PeopleOrders()
+                .ByAge()
+                .ThenByNameDescending();
+
+var ordered = people
+                .Skip(10)
+                .Take(30)
+                .NPredicateBuilderOrder(myOrder)
+                .ToList();
+```
+
+### Compound Boolean Logic
+
+When you need to combine logical "And" plus "Or" statements into a query you can use the built-in method that allows you to combine multiple queries.
+
+```csharp
+var filtered = new PeopleQuery()
+                .AndAgeIsOver(10)
+                .AndNameIs("mike")
+                .Or(new PeopleQuery()
+                    .AndAgeIsUnder(6)
+                    .AndNameIs("jessica"));
+```
+
+With a logical "Or" between both statements, your query will return any "mikes" over the age of 10 AND any "Jessica" under 6.
+
+Without the Or separator, this query would return nothing since it is impossible for all four statements to evaluate to be true on any person.
+
+> The samples provide more examples on how to structure more complex compound queries.
+
+### Testing
+
+Unit tests are easy to write for queries and orders.
 
 ```csharp
 [TestMethod]
@@ -128,38 +207,55 @@ public void Where_Queryable_FiltersCorrectly()
 
     Assert.AreEqual("Bobby", result.Single().Name);
 }
+
+[TestMethod]
+public void OrderBy_IEnumerable_OrdersCorrectly()
+{
+    _customers = new List<Customer>
+    {
+        TestHelper.Bobby(),
+        TestHelper.Billy(),
+        TestHelper.Bobby(),
+    };
+
+    var order = new CustomerTestOrder().ByName();
+
+    var result = _customers.NPredicateBuilderOrder(order);
+
+    Assert.AreEqual("Billy", result.First().Name);
+}
 ```
 
 ## Documentation
 
-Any and all documentation can be [viewed in the wiki](https://github.com/n-predicate-builder/NPredicateBuilder/wiki).
+More documentation can be [viewed in the wiki](https://github.com/n-predicate-builder/NPredicateBuilder/wiki).
 
-It's only a five minute read!
+It's only a five-minute read!
 
 ## FAQ
 
 ### What is NPredicateBuilder?
 
-NPredicateBuilder is way to writing LINQ queries and orders that can be tested individually, and reused multiple times to cut down on duplication.
+NPredicateBuilder is a way to write LINQ queries and orders that can be tested individually and then reused multiple times to cut down on duplication.
 
 ### Do I need NPredicateBuilder?
 
 If your application is simple and has a minimum amount of simple queries-you may not need it.
 
-NPredicateBuilder was created in mind when you find yourself writing the same query or order multiple times-or you have very complex queries that require testing.
+NPredicateBuilder was created in mind when you find yourself writing the same where or order statement multiple times you have very complex queries that require testing.
 
-### Whats the difference between the base library and the EF version?
+### What's the difference between the base library and the EF version?
 
-If you are doing LINQ to Objects you only need the base library.
+If you are doing LINQ-to-Objects you only need the base library.
 
 If you are using EntityFramework you need the EF library for NPredicateBuilder to work properly.
 
 ### How is performance?
 
-Your experience may very depending on how complex your queries.
+Your experience may vary depending on how complex your queries are.
 
-Generally NPredicateBuilder will be "a little" slower due to each query needing to be expanded. However, unless your performance requirements are extreme, the different is not noticeable.
+Generally, NPredicateBuilder will be "a little" slower due to each query needing to be expanded. We are talking milliseconds here. Unless your performance requirements are extreme, the difference is not noticeable.
 
 ### How does NPredicateBuilder work with other LINQ statements?
 
-It works like any other LINQ statement because its an extension method for either the IEnumerable or IQueryable interfaces.
+It works like any other LINQ statement because it's an extension method for either the IEnumerable or IQueryable interfaces.
