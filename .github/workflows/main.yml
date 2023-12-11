@@ -15,11 +15,11 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
-           "3.1.x"
-           "5.0.x"
-           "6.0.x"
-           "7.0.x"
-           "8.0.x"
+            3.1.x
+            5.0.x
+            6.0.x
+            7.0.x
+            8.0.x
 
       - name: Restore
         run: dotnet restore
@@ -30,11 +30,11 @@ jobs:
       - name: Build
         run: dotnet build --no-restore -c Release
 
-      - name: Pack
-        run: dotnet pack --no-build -c Release -o .
-
       - name: Test
         run: dotnet test --no-build --verbosity normal -c Release
+
+      - name: Pack
+        run: dotnet pack --no-build -c Release -o .
 
       - name: Publish
         run: dotnet nuget push NPredicateBuilder.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }} --skip-duplicate
