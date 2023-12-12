@@ -9,7 +9,7 @@ using System.Linq;
 namespace NPredicateBuilder
 {
     /// <summary>
-    /// Provides extension methods to query and order against an <see cref="IEnumerable{T}"/> collection.
+    /// Provides extension methods to query and order against a <see cref="IEnumerable{T}"/> collection.
     /// </summary>
     public static class NPredicateBuilderExtensions
     {

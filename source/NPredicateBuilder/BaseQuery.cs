@@ -61,12 +61,14 @@ namespace NPredicateBuilder
         private Expression<Func<T, bool>> Or(Expression<Func<T, bool>> nextExpression)
         {
             var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
+
             return Expression.Lambda<Func<T, bool>>(Expression.OrElse(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
         }
 
         private Expression<Func<T, bool>> And(Expression<Func<T, bool>> nextExpression)
         {
             var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
+
             return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
         }
     }
