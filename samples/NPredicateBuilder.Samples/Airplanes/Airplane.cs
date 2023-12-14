@@ -29,7 +29,7 @@ namespace NPredicateBuilder.Samples.Airplanes
         }
 
         /// <summary>
-        /// Gets or sets the Id.
+        /// Gets or sets the identifier.
         /// </summary>
         public Guid Id { get; set; }
 
