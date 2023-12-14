@@ -201,5 +201,54 @@ namespace NPredicateBuilder.Tests
 
             Assert.AreEqual(3, result.Count);
         }
+
+        /// <summary>
+        /// Ensures compound And filters are correct.
+        /// </summary>
+        [TestMethod]
+        public void CompoundQuery_IEnumerable_FiltersCorrectly()
+        {
+            _customers = new List<Customer>
+            {
+                new Customer(Guid.NewGuid(), "Billy", 5),
+                new Customer(Guid.NewGuid(), "Billy", 25),
+                new Customer(Guid.NewGuid(), "Bobby", 5),
+                new Customer(Guid.NewGuid(), "Bobby", 25),
+            };
+
+            var query = new CustomerTestQuery()
+                .AndAgeIsOverSix()
+                .And(new CustomerTestQuery().AndNameIsBobby());
+
+            var result = _customers
+                .NPredicateBuilderWhere(query)
+                .ToList();
+
+            Assert.AreEqual(1, result.Count);
+        }
+
+        /// <summary>
+        /// Ensures a new query on null expression is added.
+        /// </summary>
+        [TestMethod]
+        public void OrCriteriaFirst_NullExpression_AddsNewExpression()
+        {
+            _customers = new List<Customer>
+            {
+                new Customer(Guid.NewGuid(), "Billy", 5),
+                new Customer(Guid.NewGuid(), "Billy", 25),
+                new Customer(Guid.NewGuid(), "Bobby", 5),
+                new Customer(Guid.NewGuid(), "Bobby", 25),
+            };
+
+            var query = new CustomerTestQuery()
+                .OrAgeIsOverTwenty();
+
+            var result = _customers
+                .NPredicateBuilderWhere(query)
+                .ToList();
+
+            Assert.AreEqual(2, result.Count);
+        }
     }
 }

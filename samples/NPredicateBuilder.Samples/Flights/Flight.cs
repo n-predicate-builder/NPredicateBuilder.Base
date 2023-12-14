@@ -32,7 +32,7 @@ namespace NPredicateBuilder.Samples.Flights
         }
 
         /// <summary>
-        /// Gets the Id.
+        /// Gets the identifier.
         /// </summary>
         public Guid Id { get; private set; }
 
