@@ -1,8 +1,8 @@
 # NPredicateBuilder
 
-Simple, testable, LINQ queries.
+Simple, testable, LINQ queries for dotnet.
 
-![TempIcon](images/tempIcon.jpg)
+![TempIcon](images/logo.png)
 
 ![build-status](https://github.com/mjbradvica/NPredicateBuilder/workflows/main/badge.svg) ![downloads](https://img.shields.io/nuget/dt/NPredicateBuilder) ![downloads](https://img.shields.io/nuget/v/NPredicateBuilder) ![activity](https://img.shields.io/github/last-commit/mjbradvica/NPredicateBuilder/master)
 
@@ -46,7 +46,7 @@ NPredicateBuilder uses LinqKit to expand queries into a properly formed IQueryab
 
 ## Installation
 
-The best way is to [install via NuGet](https://www.nuget.org/packages/NPredicateBuilder/).
+The best way is to use [NuGet](https://www.nuget.org/packages/NPredicateBuilder/) for installation.
 
 In your domain layer.
 
