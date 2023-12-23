@@ -39,7 +39,7 @@ namespace NPredicateBuilder
         /// States the first order by operation to be executed. If one is already present, this will overwrite the current operation.
         /// </summary>
         /// <typeparam name="TKey">The key that you want to order by.</typeparam>
-        /// <param name="orderExpression">The expression that will be used to order an <see cref= "IQueryable{T}"/> or <see cref="IEnumerable{T}"/>.</param>
+        /// <param name="orderExpression">The expression that will be used to order a <see cref= "IQueryable{T}"/> or <see cref="IEnumerable{T}"/>.</param>
         protected void OrderBy<TKey>(Expression<Func<T, TKey>> orderExpression)
         {
             FirstOrder = new OrderBy<T, TKey>(orderExpression);
@@ -49,7 +49,7 @@ namespace NPredicateBuilder
         /// States the first order by descending operation to be executed. If one is already present, this will overwrite the current operation.
         /// </summary>
         /// <typeparam name="TKey">The key that you want to order by descending by.</typeparam>
-        /// <param name="orderExpression">The expression that will be used to order an <see cref="IQueryable{T}"/> or <see cref="IEnumerable{T}"/>.</param>
+        /// <param name="orderExpression">The expression that will be used to order a <see cref="IQueryable{T}"/> or <see cref="IEnumerable{T}"/>.</param>
         protected void OrderByDescending<TKey>(Expression<Func<T, TKey>> orderExpression)
         {
             FirstOrder = new OrderByDescending<T, TKey>(orderExpression);
@@ -59,7 +59,7 @@ namespace NPredicateBuilder
         /// States a then by operation to be executed.
         /// </summary>
         /// <typeparam name="TKey">The key that you want to order by after an initial order by has completed.</typeparam>
-        /// <param name="orderExpression">The expression that will be used to order an <see cref= "IOrderedQueryable{T}"/> or <see cref="IOrderedEnumerable{T}"/>.</param>
+        /// <param name="orderExpression">The expression that will be used to order a <see cref= "IOrderedQueryable{T}"/> or <see cref="IOrderedEnumerable{T}"/>.</param>
         protected void ThenBy<TKey>(Expression<Func<T, TKey>> orderExpression)
         {
             _secondaryOrders.Add(new ThenBy<T, TKey>(orderExpression));
@@ -69,7 +69,7 @@ namespace NPredicateBuilder
         /// State a then by descending operation to be executed.
         /// </summary>
         /// <typeparam name="TKey">The key that you want to order by descending after an initial order by has completed.</typeparam>
-        /// <param name="orderExpression">The expression that will be used to further order an <see cref= "IOrderedQueryable{T}"/> or <see cref="IOrderedEnumerable{T}"/>.</param>
+        /// <param name="orderExpression">The expression that will be used to further order a <see cref= "IOrderedQueryable{T}"/> or <see cref="IOrderedEnumerable{T}"/>.</param>
         protected void ThenByDescending<TKey>(Expression<Func<T, TKey>> orderExpression)
         {
             _secondaryOrders.Add(new ThenByDescending<T, TKey>(orderExpression));

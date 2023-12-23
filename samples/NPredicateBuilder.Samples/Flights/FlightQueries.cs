@@ -25,7 +25,7 @@ namespace NPredicateBuilder.Samples.Flights
         /// <summary>
         /// Sample query.
         /// </summary>
-        /// <param name="airplane">An <see cref="Airplane"/> entity.</param>
+        /// <param name="airplane">A <see cref="Airplane"/> entity.</param>
         /// <returns>An instance of the <see cref="FlightQueries"/>.</returns>
         public FlightQueries HasAirplane(Airplane airplane)
         {

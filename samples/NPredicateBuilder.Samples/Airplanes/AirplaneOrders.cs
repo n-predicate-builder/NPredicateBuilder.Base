@@ -5,7 +5,7 @@
 namespace NPredicateBuilder.Samples.Airplanes
 {
     /// <summary>
-    /// Sample order for an <see cref="Airplane"/>.
+    /// Sample order for a <see cref="Airplane"/>.
     /// </summary>
     public class AirplaneOrders : BaseOrder<Airplane>
     {
