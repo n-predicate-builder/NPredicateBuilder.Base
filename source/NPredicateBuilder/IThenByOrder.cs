@@ -13,14 +13,14 @@ namespace NPredicateBuilder
     public interface IThenByOrder<T>
     {
         /// <summary>
-        /// An interface for further ordering an <see cref="IOrderedQueryable"/> entity.
+        /// An interface for further ordering a <see cref="IOrderedQueryable"/> entity.
         /// </summary>
         /// <param name="orderedQueryable">A list of entities to be further ordered.</param>
         /// <returns>A further ordered list of entities.</returns>
         IOrderedQueryable<T> Order(IOrderedQueryable<T> orderedQueryable);
 
         /// <summary>
-        /// An interface for further ordering an <see cref="IOrderedEnumerable{TElement}"/> entity.
+        /// An interface for further ordering a <see cref="IOrderedEnumerable{TElement}"/> entity.
         /// </summary>
         /// <param name="orderedEnumerable">A list of entity to be further ordered.</param>
         /// <returns>A further ordered list of entities.</returns>

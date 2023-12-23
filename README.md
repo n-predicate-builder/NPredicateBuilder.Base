@@ -118,7 +118,7 @@ If using plain LINQ-to-Objects, there is the same extension method for the IEnum
 var result = people.NPredicateBuilderWhere(peopleQuery);
 ```
 
-Because it's just an extension method, it behaves like any other LINQ to Object or LINQ to Entities query.
+Because it's just an extension method, it behaves like any other LINQ to Objects or LINQ to Entities query.
 
 ```csharp
 var result = ApplicationContext.People
@@ -181,7 +181,7 @@ var filtered = new PeopleQuery()
                     .AndNameIs("jessica"));
 ```
 
-With a logical "Or" between both statements, your query will return any "mikes" over the age of 10 AND any "Jessica" under 6.
+With a logical "Or" between both statements, your query will return any "Mike" over the age of 10 AND any "Jessica" under 6.
 
 Without the Or separator, this query would return nothing since it is impossible for all four statements to evaluate to be true on any person.
 

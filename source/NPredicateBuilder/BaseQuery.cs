@@ -26,6 +26,7 @@ namespace NPredicateBuilder
         public BaseQuery<T> And(BaseQuery<T> currentQuery)
         {
             SearchExpression = And(currentQuery.SearchExpression);
+
             return this;
         }
 
@@ -37,6 +38,7 @@ namespace NPredicateBuilder
         public BaseQuery<T> Or(BaseQuery<T> currentQuery)
         {
             SearchExpression = Or(currentQuery.SearchExpression);
+
             return this;
         }
 
@@ -61,12 +63,14 @@ namespace NPredicateBuilder
         private Expression<Func<T, bool>> Or(Expression<Func<T, bool>> nextExpression)
         {
             var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
+
             return Expression.Lambda<Func<T, bool>>(Expression.OrElse(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
         }
 
         private Expression<Func<T, bool>> And(Expression<Func<T, bool>> nextExpression)
         {
             var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
+
             return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
         }
     }
