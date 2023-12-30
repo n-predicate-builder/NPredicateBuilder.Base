@@ -5,7 +5,7 @@
     <Authors>Michael Bradvica</Authors>
     <Description>NPredicateBuilder core library and extensions for LINQ to Objects.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>5.2.0</Version>
+    <Version>5.2.1</Version>
     <Company>Michael Bradvica LLC.</Company>
     <PackageProjectUrl>https://github.com/mjbradvica/NPredicateBuilder</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mjbradvica/n-predicate-builder</RepositoryUrl>

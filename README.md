@@ -2,7 +2,7 @@
 
 Simple, testable, LINQ queries for dotnet.
 
-![TempIcon](https://imgur.com/plmmAcK.png)
+![TempIcon](https://i.imgur.com/plmmAcK.png)
 
 ![build-status](https://github.com/mjbradvica/NPredicateBuilder/workflows/main/badge.svg) ![downloads](https://img.shields.io/nuget/dt/NPredicateBuilder) ![downloads](https://img.shields.io/nuget/v/NPredicateBuilder) ![activity](https://img.shields.io/github/last-commit/mjbradvica/NPredicateBuilder/master)
 
