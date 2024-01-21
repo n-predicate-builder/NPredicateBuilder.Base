@@ -5,6 +5,7 @@
     "znck.grammarly",
     "editorconfig.editorconfig",
     "eamodio.gitlens",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "znck.grammarly"
   ]
 }
