@@ -6,7 +6,7 @@
     <Version>5.2.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company>Michael Bradvica LLC.</Company>
-    <Description>Extensions for NPredicateBuilder to allow it to work with Entity Framework.</Description>
+    <Description>NPredicateBuilder extensions for Entity Framework.</Description>
     <PackageProjectUrl>https://github.com/mjbradvica/NPredicateBuilder</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mjbradvica/n-predicate-builder</RepositoryUrl>
     <RepositoryType>Library</RepositoryType>

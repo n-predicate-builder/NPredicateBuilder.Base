@@ -10,27 +10,27 @@ using System.Linq.Expressions;
 namespace NPredicateBuilder
 {
     /// <inheritdoc />
-    internal class OrderBy<T, TKey> : IOrder<T>
+    internal class OrderBy<TEntity, TKey> : IOrder<TEntity>
     {
-        private readonly Expression<Func<T, TKey>> _orderExpression;
+        private readonly Expression<Func<TEntity, TKey>> _orderExpression;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OrderBy{T, TKey}"/> class.
+        /// Initializes a new instance of the <see cref="OrderBy{TEntity, TKey}"/> class.
         /// </summary>
         /// <param name="orderExpression">A func that describes how an entity should be ordered by.</param>
-        public OrderBy(Expression<Func<T, TKey>> orderExpression)
+        public OrderBy(Expression<Func<TEntity, TKey>> orderExpression)
         {
             _orderExpression = orderExpression;
         }
 
         /// <inheritdoc/>
-        public IOrderedQueryable<T> Order(IQueryable<T> queryable)
+        public IOrderedQueryable<TEntity> Order(IQueryable<TEntity> queryable)
         {
             return queryable.OrderBy(_orderExpression);
         }
 
         /// <inheritdoc/>
-        public IOrderedEnumerable<T> Order(IEnumerable<T> enumerable)
+        public IOrderedEnumerable<TEntity> Order(IEnumerable<TEntity> enumerable)
         {
             return enumerable.OrderBy(_orderExpression.Compile());
         }

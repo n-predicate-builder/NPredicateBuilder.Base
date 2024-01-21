@@ -7,23 +7,18 @@ using System.Linq.Expressions;
 
 namespace NPredicateBuilder
 {
-    /// <summary>
-    /// A base class used to build Where clause queries against an entity.
-    /// </summary>
-    /// <typeparam name="T">The entity to be queried against.</typeparam>
-    public abstract class BaseQuery<T>
+    /// <inheritdoc />
+    public abstract class BaseQuery<TEntity> : IBaseQuery<TEntity>
     {
-        /// <summary>
-        /// Gets the current Expression that will be used to query a collection.
-        /// </summary>
-        public Expression<Func<T, bool>> SearchExpression { get; private set; }
+        /// <inheritdoc />
+        public Expression<Func<TEntity, bool>> SearchExpression { get; private set; }
 
         /// <summary>
         /// Appends an additional search expression on an already existing search expression using the And comparison.
         /// </summary>
         /// <param name="currentQuery">The search expression that you are appending to the end of an already existing expression.</param>
         /// <returns>A new search expression that contains all previous expressions.</returns>
-        public BaseQuery<T> And(BaseQuery<T> currentQuery)
+        public BaseQuery<TEntity> And(BaseQuery<TEntity> currentQuery)
         {
             SearchExpression = And(currentQuery.SearchExpression);
 
@@ -35,7 +30,7 @@ namespace NPredicateBuilder
         /// </summary>
         /// <param name="currentQuery">The search expression that you are appending to the end of an already existing expression.</param>
         /// <returns>A new search expression that contains all previous expressions.</returns>
-        public BaseQuery<T> Or(BaseQuery<T> currentQuery)
+        public BaseQuery<TEntity> Or(BaseQuery<TEntity> currentQuery)
         {
             SearchExpression = Or(currentQuery.SearchExpression);
 
@@ -46,7 +41,7 @@ namespace NPredicateBuilder
         /// Adds an And expression to the current search expression list.
         /// </summary>
         /// <param name="nextExpression">The expression that you wish to add with the And comparison.</param>
-        protected void AddAndCriteria(Expression<Func<T, bool>> nextExpression)
+        protected void AddAndCriteria(Expression<Func<TEntity, bool>> nextExpression)
         {
             SearchExpression = SearchExpression == null ? nextExpression : And(nextExpression);
         }
@@ -55,23 +50,23 @@ namespace NPredicateBuilder
         /// Adds an Or expression to the current search expression list.
         /// </summary>
         /// <param name="nextExpression">The expression that you wish to add with the Or comparison.</param>
-        protected void AddOrCriteria(Expression<Func<T, bool>> nextExpression)
+        protected void AddOrCriteria(Expression<Func<TEntity, bool>> nextExpression)
         {
             SearchExpression = SearchExpression == null ? nextExpression : Or(nextExpression);
         }
 
-        private Expression<Func<T, bool>> Or(Expression<Func<T, bool>> nextExpression)
+        private Expression<Func<TEntity, bool>> Or(Expression<Func<TEntity, bool>> nextExpression)
         {
             var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
 
-            return Expression.Lambda<Func<T, bool>>(Expression.OrElse(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
+            return Expression.Lambda<Func<TEntity, bool>>(Expression.OrElse(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
         }
 
-        private Expression<Func<T, bool>> And(Expression<Func<T, bool>> nextExpression)
+        private Expression<Func<TEntity, bool>> And(Expression<Func<TEntity, bool>> nextExpression)
         {
             var invokedExpression = Expression.Invoke(nextExpression, SearchExpression.Parameters);
 
-            return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
+            return Expression.Lambda<Func<TEntity, bool>>(Expression.AndAlso(SearchExpression.Body, invokedExpression), SearchExpression.Parameters);
         }
     }
 }
