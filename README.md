@@ -72,6 +72,17 @@ public class PeopleQuery : BaseQuery<People>
 }
 ```
 
+The BaseQuery of T inherits from the IBaseQuery of T interface. The interface has a single property.
+
+```csharp
+public interface IBaseQuery<T>
+{
+    Expression<Func<T, bool> SearchExpression { get; }
+}
+```
+
+You may use the interface as a constraint when you just need to use the query expression.
+
 Add single queries with the Add or Or logic by creating methods and returning the query object.
 
 ```csharp
@@ -151,6 +162,17 @@ public class PeopleOrders : BaseOrder<People>
 
         return this;
     }
+}
+```
+
+Similar to queries, the BaseOrder of T class inherits from the IBaseOrder of T interface for use as a constraint.
+
+```csharp
+public interface IBaseOrder<T>
+{
+    IOrder<TEntity> FirstOrder { get; }
+
+    IEnumerable<IThenByOrder<TEntity>> SecondaryOrders { get; }
 }
 ```
 
