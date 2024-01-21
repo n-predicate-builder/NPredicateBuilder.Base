@@ -14,13 +14,13 @@ namespace NPredicateBuilder.EF
     public static class NPredicateBuilderEFExtensions
     {
         /// <summary>
-        /// Applies a series of predicates as filters on an IQueryable.
+        /// Applies a series of predicates as filters on a <see cref="IQueryable{TEntity}"/>.
         /// </summary>
-        /// <typeparam name="T">The entity that you are querying.</typeparam>
-        /// <param name="queryable">An IQueryable of type T entity.</param>
-        /// <param name="baseQuery">A query object that will apply a series of filters.</param>
-        /// <returns>A filtered IQueryable of type T.</returns>
-        public static IQueryable<T> NPredicateBuilderEFWhere<T>(this IQueryable<T> queryable, BaseQuery<T> baseQuery)
+        /// <typeparam name="TEntity">The entity that you are querying.</typeparam>
+        /// <param name="queryable">A <see cref="IQueryable{TEntity}"/>.</param>
+        /// <param name="baseQuery">A <see cref="IBaseQuery{TEntity}"/>.</param>
+        /// <returns>A filtered <see cref="IQueryable{TEntity}"/>.</returns>
+        public static IQueryable<TEntity> NPredicateBuilderEFWhere<TEntity>(this IQueryable<TEntity> queryable, IBaseQuery<TEntity> baseQuery)
         {
             if (baseQuery.SearchExpression == null)
             {
@@ -31,13 +31,13 @@ namespace NPredicateBuilder.EF
         }
 
         /// <summary>
-        /// Applies a series of orders on an IQueryable.
+        /// Applies a series of orders on a <see cref="IQueryable{TEntity}"/>.
         /// </summary>
-        /// <typeparam name="T">The entity that you are ordering.</typeparam>
-        /// <param name="queryable">An IQueryable of type T entity.</param>
-        /// <param name="baseOrder">An order object that will apply a series of orders.</param>
-        /// <returns>An IOrderedQueryable of type T.</returns>
-        public static IOrderedQueryable<T> NPredicateBuilderEFOrder<T>(this IQueryable<T> queryable, BaseOrder<T> baseOrder)
+        /// <typeparam name="TEntity">The entity that you are ordering.</typeparam>
+        /// <param name="queryable">A <see cref="IQueryable{TEntity}"/>.</param>
+        /// <param name="baseOrder">A <see cref="IBaseOrder{TEntity}"/>.</param>
+        /// <returns>A <see cref="IOrderedQueryable{TEntity}"/>.</returns>
+        public static IOrderedQueryable<TEntity> NPredicateBuilderEFOrder<TEntity>(this IQueryable<TEntity> queryable, IBaseOrder<TEntity> baseOrder)
         {
             if (baseOrder.FirstOrder == null)
             {
