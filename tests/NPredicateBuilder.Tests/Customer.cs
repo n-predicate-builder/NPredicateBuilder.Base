@@ -14,7 +14,7 @@ namespace NPredicateBuilder.Tests
         /// <summary>
         /// Initializes a new instance of the <see cref="Customer"/> class.
         /// </summary>
-        /// <param name="id">Id of the customer.</param>
+        /// <param name="id">Identifier of the customer.</param>
         /// <param name="name">Name of the customer.</param>
         /// <param name="age">Age of the customer.</param>
         public Customer(Guid id, string name, int age)
@@ -33,7 +33,7 @@ namespace NPredicateBuilder.Tests
         }
 
         /// <summary>
-        /// Gets the Id.
+        /// Gets the customer identifier.
         /// </summary>
         public Guid Id { get; private set; }
 
