@@ -3,12 +3,14 @@
 // </copyright>
 
 #if NETFRAMEWORK
+using System;
 using System.Data.Entity;
 
 namespace NPredicateBuilder.Tests
 {
 #else
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace NPredicateBuilder.Tests
 {
@@ -24,7 +26,8 @@ namespace NPredicateBuilder.Tests
         /// Initializes a new instance of the <see cref="TestContext"/> class.
         /// </summary>
         public TestContext()
-            : base("TestContext")
+            : base(Environment.GetEnvironmentVariable("TEST_CONNECTION_STRING") ??
+                   "Server=.\\SQLExpress;Database=NPredicateBuilder;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=True;TrustServerCertificate=true")
         {
         }
 #else
@@ -50,7 +53,10 @@ namespace NPredicateBuilder.Tests
         /// <param name="optionsBuilder">Allow further options for database configuration.</param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(LocalDB)\\MSSQLLocalDB;Database=NPredicateBuilderTest;Integrated Security=True;MultipleActiveResultSets=true;");
+            var connectionString = Environment.GetEnvironmentVariable("TEST_CONNECTION_STRING") ??
+                                   "Server=.\\SQLExpress;Database=NPredicateBuilder;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=True;TrustServerCertificate=true";
+
+            optionsBuilder.UseSqlServer(connectionString);
         }
 #endif
     }
