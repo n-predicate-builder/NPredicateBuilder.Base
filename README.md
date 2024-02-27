@@ -29,6 +29,7 @@ NPredicateBuilder is a way to build LINQ queries and orders with the following:
     - [Compound Boolean Logic](#compound-boolean-logic)
     - [Testing](#testing)
   - [Documentation](#documentation)
+  - [Samples](#samples)
   - [FAQ](#faq)
     - [What is NPredicateBuilder?](#what-is-npredicatebuilder)
     - [Do I need NPredicateBuilder?](#do-i-need-npredicatebuilder)
@@ -69,15 +70,6 @@ For any entity you wish to query against, create a query class that derives from
 ```csharp
 public class PeopleQuery : BaseQuery<People>
 {
-}
-```
-
-The BaseQuery of T inherits from the IBaseQuery of T interface. The interface has a single property.
-
-```csharp
-public interface IBaseQuery<T>
-{
-    Expression<Func<T, bool> SearchExpression { get; }
 }
 ```
 
@@ -165,17 +157,6 @@ public class PeopleOrders : BaseOrder<People>
 }
 ```
 
-Similar to queries, the BaseOrder of T class inherits from the IBaseOrder of T interface for use as a constraint.
-
-```csharp
-public interface IBaseOrder<T>
-{
-    IOrder<TEntity> FirstOrder { get; }
-
-    IEnumerable<IThenByOrder<TEntity>> SecondaryOrders { get; }
-}
-```
-
 Plug your orders into any query you want the same way by utilizing either extension method.
 
 ```csharp
@@ -253,6 +234,10 @@ public void OrderBy_IEnumerable_OrdersCorrectly()
 More documentation can be [viewed in the wiki](https://github.com/n-predicate-builder/NPredicateBuilder/wiki).
 
 It's only a five-minute read!
+
+## Samples
+
+Samples are available [here](https://github.com/mjbradvica/NPredicateBuilder/tree/master/samples/NPredicateBuilder.Samples) if more clarity is needed.
 
 ## FAQ
 
