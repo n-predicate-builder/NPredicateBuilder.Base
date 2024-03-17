@@ -73,8 +73,6 @@ public class PeopleQuery : BaseQuery<People>
 }
 ```
 
-You may use the interface as a constraint when you just need to use the query expression.
-
 Add single queries with the Add or Or logic by creating methods and returning the query object.
 
 ```csharp
