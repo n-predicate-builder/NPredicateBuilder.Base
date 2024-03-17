@@ -19,17 +19,19 @@ namespace NPredicateBuilder.Samples
         public SampleContext()
         {
             Database.EnsureCreated();
+            Airplanes = Set<Airplane>();
+            Flights = Set<Flight>();
         }
 
         /// <summary>
-        /// Gets or sets the airplanes DbSet.
+        /// Gets the airplanes DbSet.
         /// </summary>
-        public DbSet<Airplane> Airplanes { get; set; }
+        public DbSet<Airplane> Airplanes { get; }
 
         /// <summary>
-        /// Gets or sets the Flights DbSet.
+        /// Gets the Flights DbSet.
         /// </summary>
-        public DbSet<Flight> Flights { get; set; }
+        public DbSet<Flight> Flights { get; }
 
         /// <summary>
         /// Initializes the database connection string.
